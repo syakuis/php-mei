@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<module name="module">
+   <action name="dispModuleAdminSearchList" target="admin" class="ModuleView" method="dispModuleAdminSearchList">
+      <permission>manager</permission>
+      <type>view</type>
+      <template>admin.module.search.list.php</template>
+    </action>
+</module>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<module name="layout">
+   <action name="dispLayoutAdminList" target="admin" class="LayoutView" method="dispLayoutAdminList">
+      <permission>manager</permission>
+      <type>view</type>
+      <template>admin.layout.list.php</template>
+    </action>
+   <action name="dispLayoutAdminInsert" target="admin" class="LayoutView" method="dispLayoutAdminInsert">
+      <permission>manager</permission>
+      <type>view</type>
+      <template>admin.layout.insert.php</template>
+    </action>
+   <action name="procLayoutAdminInsert" target="admin" class="LayoutController" method="procLayoutAdminInsert">
+      <permission>manager</permission>
+      <type>controller</type>
+      <result>xml</result>
+    </action>
+   <action name="procLayoutAdminDelete" target="admin" class="LayoutController" method="procLayoutAdminDelete">
+      <permission>manager</permission>
+      <type>controller</type>
+      <result>xml</result>
+    </action>
+</module>

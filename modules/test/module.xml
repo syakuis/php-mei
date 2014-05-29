@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<module>
+   <action name="dispTestList" class="TestView" method="dispTestList" index="true">
+      <permission>everyone</permission>
+      <type>view</type>
+      <result>html</result>
+      <template>test.list.php</template>
+    </action>
+   <action name="dispTestView" class="TestView" method="dispTestView">
+      <permission>everyone</permission>
+      <type>view</type>
+      <result>html</result>
+      <template>test.view.php</template>
+    </action>
+</module>

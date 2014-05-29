@@ -1,0 +1,20 @@
+CREATE  TABLE IF NOT EXISTS `module` (
+  `module_orl` BIGINT(11) NOT NULL AUTO_INCREMENT ,
+  `module` VARCHAR(150) NOT NULL ,
+  `mid` VARCHAR(50) NULL ,
+  `module_title` VARCHAR(250) NOT NULL ,
+  `browser_title` VARCHAR(250) NOT NULL ,
+  `skin` VARCHAR(100) NULL ,
+  `layout_orl` BIGINT(11) NULL ,
+  `menu_orl` BIGINT(11) NULL ,
+  `header_content` LONGTEXT NULL ,
+  `footer_content` LONGTEXT NULL ,
+  `locking` CHAR(1) NOT NULL DEFAULT 'N' COMMENT '삭제할수없음' ,
+  `reg_datetime` CHAR(14) NULL ,
+  PRIMARY KEY (`module_orl`) ,
+  INDEX `idx_module` (`module` ASC) ,
+  INDEX `idx_mid` (`mid` ASC) ,
+  INDEX `idx_locking` (`locking` ASC) ,
+  INDEX `idx_mid_module_orl` (`module_orl` ASC, `mid` ASC) ,
+  INDEX `idx_module_module_orl` (`module_orl` ASC, `module` ASC) )
+ENGINE = InnoDB

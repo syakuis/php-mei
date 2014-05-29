@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<module name="message">
+   <action name="dispMessageView" class="MessageView" method="dispMessageView" index="true">
+      <permission>everyone</permission>
+      <type>view</type>
+      <template>message.php</template>
+    </action>
+   <action name="dispMessageAdminConfigInsert" target="admin" class="MessageView" method="dispMessageAdminConfigInsert">
+      <permission>manager</permission>
+      <type>view</type>
+      <template>admin.message.config.insert.php</template>
+    </action>
+   <action name="procMessageAdminConfigInsert" target="admin" module="module" class="ModuleController" method="procModuleInsert">
+      <permission>manager</permission>
+      <type>controller</type>
+      <result>xml</result>
+    </action>
+
+</module>

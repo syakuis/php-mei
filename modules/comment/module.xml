@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<module name="comment">
+  <action name="dispCommentList" class="CommentView" method="dispCommentList" index="true">
+    <permission>everyone</permission>
+    <type>view</type>
+    <template>comment.list.php</template>
+  </action>
+
+  <action name="procCommentInsert" class="CommentController" method="procCommentInsert">
+    <permission>member</permission>
+    <type>controller</type>
+    <result>xml</result>
+  </action>
+  <action name="procCommentDelete" class="CommentController" method="procCommentDelete">
+    <permission>member</permission>
+    <type>controller</type>
+    <result>xml</result>
+  </action>
+  <action name="procCommentGoodUpdate" class="CommentController" method="procCommentGoodUpdate">
+    <permission>member</permission>
+    <type>controller</type>
+    <result>xml</result>
+  </action>
+  <action name="procCommentBadUpdate" class="CommentController" method="procCommentBadUpdate">
+    <permission>member</permission>
+    <type>controller</type>
+    <result>xml</result>
+  </action>
+
+</module>

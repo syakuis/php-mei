@@ -1,0 +1,30 @@
+.main_column {
+  margin-bottom:5px;
+}
+.main_column:after {
+  clear: both;
+  content: "";
+  display: block;
+}
+
+
+.main_keyword {
+  float:left;
+  width:330px;
+}
+
+.main_forum {
+  float:left;
+  margin-left:17px;
+  width:660px;
+}
+
+.main_document {
+  float:left;
+  width:330px;
+}
+
+.main_document.center {
+  margin-left:17px;
+  margin-right:17px;
+}

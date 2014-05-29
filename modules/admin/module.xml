@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<module name="admin">
+   <action name="dispAdminConfigInsert" target="admin" class="AdminView" method="dispAdminConfigInsert" index="true">
+      <permission>manager</permission>
+      <type>view</type>
+      <template>admin.config.insert.php</template>
+    </action>
+   <action name="procAdminConfigInsert" target="admin" module="module" class="ModuleController" method="procModuleInsert">
+      <permission>manager</permission>
+      <type>controller</type>
+      <result>xml</result>
+    </action>
+</module>

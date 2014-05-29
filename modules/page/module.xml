@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<module name="page">
+   <action name="dispPageView" class="PageView" method="dispPageView" index="true">
+      <permission>everyone</permission>
+      <type>view</type>
+      <template>page.php</template>
+    </action>
+
+   <action name="dispPageAdminConfigList" target="admin" class="PageView" method="dispPageAdminConfigList">
+      <permission>manager</permission>
+      <type>view</type>
+      <template>admin.page.config.list.php</template>
+    </action>
+   <action name="dispPageAdminConfigInsert" target="admin" class="PageView" method="dispPageAdminConfigInsert">
+      <permission>manager</permission>
+      <type>view</type>
+      <template>admin.page.config.insert.php</template>
+    </action>
+
+   <action name="procPageAdminConfigInsert" target="admin" module="module" class="ModuleController" method="procModuleInsert">
+      <permission>manager</permission>
+      <type>controller</type>
+      <result>xml</result>
+    </action>
+
+   <action name="dispPageAdminGrantInsert" target="admin" class="PageView" method="dispPageAdminGrantInsert">
+      <permission>manager</permission>
+      <type>view</type>
+      <template>admin.page.grant.insert.php</template>
+    </action>
+   <action name="procPageAdminGrantInsert" target="admin" module="module" class="ModuleController" method="procModuleGrantInsert">
+      <permission>manager</permission>
+      <type>controller</type>
+      <result>xml</result>
+    </action>
+   <action name="procPageAdminConfigDelete" target="admin" module="module" class="ModuleController" method="procModuleDelete">
+      <permission>manager</permission>
+      <type>controller</type>
+      <result>xml</result>
+    </action>
+
+</module>

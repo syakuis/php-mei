@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<module name="document">
+    <action name="dispDocumentList" class="DocumentView" method="dispDocumentList" index="true">
+      <permission>everyone</permission>
+      <type>view</type>
+      <template>document.list.php</template>
+    </action>
+    <action name="dispDocumentView" class="DocumentView" method="dispDocumentView">
+      <permission>everyone</permission>
+      <type>view</type>
+      <template>document.view.php</template>
+    </action>
+
+    <action name="dispDocumentInsert" class="DocumentView" method="dispDocumentInsert">
+      <permission>everyone</permission>
+      <type>view</type>
+      <template>document.insert.php</template>
+    </action>
+    <action name="procDocumentInsert" class="DocumentController" method="procDocumentInsert">
+      <permission>member</permission>
+      <type>controller</type>
+      <result>xml</result>
+    </action>
+    <action name="procDocumentDelete" class="DocumentController" method="procDocumentDelete">
+      <permission>member</permission>
+      <type>controller</type>
+      <result>xml</result>
+    </action>
+    <action name="procDocumentVotedUpdate" class="DocumentController" method="procDocumentVotedUpdate">
+      <permission>member</permission>
+      <type>controller</type>
+      <result>xml</result>
+    </action>
+
+    <action name="dispDocumentAdminConfigList" target="admin" class="DocumentView" method="dispDocumentAdminConfigList">
+      <permission>manager</permission>
+      <type>view</type>
+      <template>admin.document.config.list.php</template>
+    </action>
+
+    <action name="dispDocumentAdminConfigInsert" target="admin" class="DocumentView" method="dispDocumentAdminConfigInsert">
+      <permission>manager</permission>
+      <type>view</type>
+      <template>admin.document.config.insert.php</template>
+    </action>
+    <action name="procDocumentAdminConfigInsert" target="admin" module="module" class="ModuleController" method="procModuleInsert">
+      <permission>manager</permission>
+      <type>controller</type>
+      <result>xml</result>
+    </action>
+
+    <action name="dispDocumentAdminGrantInsert" target="admin" class="DocumentView" method="dispDocumentAdminGrantInsert">
+      <permission>manager</permission>
+      <type>view</type>
+      <template>admin.document.grant.insert.php</template>
+    </action>
+    <action name="procDocumentAdminGrantInsert" target="admin" module="module" class="ModuleController" method="procModuleGrantInsert">
+      <permission>manager</permission>
+      <type>controller</type>
+      <result>xml</result>
+    </action>
+
+    <action name="procDocumentAdminDelete" target="admin" class="DocumentController" method="procDocumentAdminDelete">
+      <permission>manager</permission>
+      <type>controller</type>
+      <result>xml</result>
+    </action>
+
+
+</module>

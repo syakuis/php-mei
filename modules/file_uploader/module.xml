@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<module name="file_uploader">
+  <action name="dispFileUploaderInsert" class="FileUploaderView" method="dispFileUploaderInsert">
+    <permission>everyone</permission>
+    <type>view</type>
+    <template>file.multi.insert.php</template>
+  </action>
+  <action name="procFileUploaderInsert" class="FileUploaderController" method="procFileUploaderInsert">
+    <permission>member</permission>
+    <type>controller</type>
+    <result>xml</result>
+  </action>
+  <action name="procFileUploaderDelete" class="FileUploaderController" method="procFileUploaderDelete">
+    <permission>member</permission>
+    <type>controller</type>
+    <result>xml</result>
+  </action>
+
+</module>

@@ -1,0 +1,1 @@
+<?php if (!defined("__SYAKU__")) exit; ?>

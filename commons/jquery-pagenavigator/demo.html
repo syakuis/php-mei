@@ -1,0 +1,137 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="ko" xml:lang="ko" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Cache-Control" content="no-cache"/> 
+<meta http-equiv="Expires" content="0"/> 
+<meta http-equiv="Pragma" content="no-cache"/>
+
+<meta content="jQuery PageNavigator" name="Generator" />
+<meta content="Seok Kyun. Choi. (http://syaku.tistory.com)" name="Programmed" />
+<meta content="no" http-equiv="imagetoolbar" />
+<title>jQuery PageNavigator Demo</title>
+<link rel="stylesheet" type="text/css" charset="UTF-8" href="style.css" />
+
+<script type="text/javascript" language="javascript" charset="UTF-8" src="http://code.jquery.com/jquery-1.6.2.min.js"></script>
+<script type="text/javascript" language="javascript" charset="UTF-8" src="./jquery.pagenavigator.js"></script>
+</head>
+<body>
+
+<div id="example">
+<h1>Example</h1>
+<div class="html">
+
+<script type="text/javascript">
+jQuery(function() {
+  jQuery('#text_view').text(document.URL);
+
+  // jaPageNavigator
+  jQuery('#pages').jaPageNavigator({
+      url : "?" // 함께 넘길 파라메터
+    , form : '#pageform' // 대상 폼
+    , page : "1" // 현제 페이지번호
+    , page_row : "10" // 한 페이지 데이터 노출 수
+    , total_count : "40" // 총 데이터 수
+  });
+
+  // jaPageNavigator2
+  jQuery('#pages2').jaPageNavigator({
+      page : "1"
+    , total_count : "100"
+  });
+
+});
+
+</script>
+
+<h1>현재 URL : <span id='text_view'></span></h1>
+<hr/>
+
+<h1>페이지 네비게이션 스타일 1</h1>
+<form id="pageform">
+  <div id="pages" class="hidden tr">
+    <div class="pageArea">
+      <div class="fl hidden pagemove">
+        <input type="text" class="tr" name="page" id="page" value="1" style="width:30px;" />
+        &nbsp;/&nbsp;<span>total</span>
+        <input type="button" onclick="jQuery.jaPageNavigator.move();" value="이동" />
+      </div>
+      <div class="fr">
+        <span class="start">처음</span>
+        <span class="prev">&lt;&lt;</span>
+        <span class="prevpage">&lt;</span>
+        <span class="pageaction"></span>
+        <span class="now"><b>page</b></span>
+        <span class="div">&nbsp;</span>
+        <span class="num"><a href=''>page</a></span>
+        <span class="nextpage">&gt;</span>
+        <span class="next">&gt;&gt;</span>
+        <span class="end">마지막</span>
+      </div>
+      <div class="clear"></div>
+    </div>
+  </div>
+  </form>
+<hr/>
+<h1>페이지 네비게이션 스타일 2</h1>
+<div id="pages2" class="hidden">
+  <a href='' class="start">[처음]</a>
+  <a href='' class="prevpage">[이전 page]</a>
+  <span class="pageaction"></span>
+  <span class="now"><b>[page]</b></span>
+  <span class="div">&nbsp;</span>
+  <a href='' class="num">[page]</a>
+  <a href='' class="nextpage">[다음 page]</a>
+  <a href='' class="end">[마지막]</a>
+</div>
+
+</div>
+
+<h1>Source</h1>
+<div class="code">
+
+<pre>
+  // 대상지정 기본값 설명
+  , start : '.start' // 처음페이지 태그
+  , startx : '.startx' // 처음페이지 없을경우
+  , prev : '.prev' // 이전페이지 태그
+  , prevx : '.prevx' // 이전페이지 없을경우
+  , pageaction : '.pageaction' // 페이지 번호 노출 영역
+  , now : '.now' // 현재페이지번호 태그
+  , num : '.num' // 페이지번호 태그
+  , div : '.div' // 페이지번호 분리 태그
+  , next : '.next' // 다음페이지 태그
+  , nextx : '.nextx' // 다음페이지 없을경우
+  , end : '.end' // 마지막페이지 태그
+  , endx : '.endx' // 마지막페이지 없을경우
+  , prevpage : '.prevpage' // 이전 1 페이지 태그
+  , prevpagex : '.prevpagex' // 이전 1 페이지 없을경우
+  , nextpage : '.nextpage' // 다음 1 페이지 태그
+  , nextpagex : '.nextpagex' // 다음 1 페이지 없을경우
+  , pagemove : '.pagemove' // 페이지이동 태그
+  , pagemovex : '.pagemovex' // 페이지이동 없을경우
+
+  // jaPageNavigator
+  jQuery('#pages').jaPageNavigator({
+      url : "?" // 함께 넘길 파라메터
+    , form : '#pageform' // 대상 폼
+    , page : "1" // 현제 페이지번호
+    , page_row : "10" // 한 페이지 데이터 노출 수
+    , total_count : "40" // 총 데이터 수
+  });
+
+  // jaPageNavigator2
+  jQuery('#pages2').jaPageNavigator({
+      page : "1"
+    , total_count : "100"
+  });
+
+
+
+</pre>
+
+</div>
+
+
+</body>
+</html>

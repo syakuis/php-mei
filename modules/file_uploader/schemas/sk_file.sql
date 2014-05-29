@@ -1,0 +1,20 @@
+CREATE  TABLE IF NOT EXISTS `sk_file` (
+  `file_orl` BIGINT(11) NOT NULL AUTO_INCREMENT ,
+  `module_orl` BIGINT(11) NOT NULL ,
+  `seq` INT(11) NOT NULL ,
+  `target_orl` BIGINT(11) NOT NULL ,
+  `num` INT(11) NULL ,
+  `sid` VARCHAR(100) NOT NULL ,
+  `member_orl` BIGINT(11) NULL ,
+  `user_id` VARCHAR(100) NULL ,
+  `filename` VARCHAR(250) NOT NULL ,
+  `re_filename` VARCHAR(250) NOT NULL ,
+  `folder` VARCHAR(150) NULL ,
+  `folder_date` CHAR(8) NULL ,
+  `size` BIGINT(11) NULL ,
+  `extension` VARCHAR(10) NULL ,
+  `type` VARCHAR(100) NULL ,
+  `ipaddress` VARCHAR(128) NULL ,
+  `reg_datetime` CHAR(14) NULL ,
+  PRIMARY KEY (`file_orl`) )
+ENGINE = InnoDB

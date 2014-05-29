@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<module name="member">
+
+   <action name="dispMemberLogin" class="MemberView" method="dispMemberLogin">
+      <permission>everyone</permission>
+      <type>view</type>
+      <template>member.login.php</template>
+    </action>
+   <action name="procMemberLogin" class="MemberController" method="procMemberLogin">
+      <permission>everyone</permission>
+      <type>controller</type>
+      <result>xml</result>
+    </action>
+   <action name="procMemberLogout" class="MemberController" method="procMemberLogout">
+      <permission>member</permission>
+      <type>controller</type>
+      <result>xml</result>
+    </action>
+
+   <action name="dispMemberSignup" class="MemberView" method="dispMemberSignup">
+      <permission>everyone</permission>
+      <type>view</type>
+      <template>member.signup.php</template>
+    </action>
+   <action name="procMemberSignup" class="MemberController" method="procMemberSignup">
+      <permission>everyone</permission>
+      <type>controller</type>
+      <result>xml</result>
+    </action>
+
+   <action name="dispMemberUpdate" class="MemberView" method="dispMemberUpdate">
+      <permission>member</permission>
+      <type>view</type>
+      <template>member.update.php</template>
+    </action>
+   <action name="procMemberUpdate" class="MemberController" method="procMemberUpdate">
+      <permission>member</permission>
+      <type>controller</type>
+      <result>xml</result>
+    </action>
+
+   <action name="dispMemberOut" class="MemberView" method="dispMemberOut">
+      <permission>member</permission>
+      <type>view</type>
+      <template>member.out.php</template>
+    </action>
+   <action name="procMemberOut" class="MemberController" method="procMemberOut">
+      <permission>member</permission>
+      <type>controller</type>
+      <result>xml</result>
+    </action>
+
+   <action name="procMemberUserIdCheck" class="MemberController" method="procMemberUserIdCheck">
+      <permission>everyone</permission>
+      <type>controller</type>
+      <result>xml</result>
+    </action>
+   <action name="procMemberNickNameCheck" class="MemberController" method="procMemberNickNameCheck">
+      <permission>everyone</permission>
+      <type>controller</type>
+      <result>xml</result>
+    </action>
+   <action name="procMemberEmailCheck" class="MemberController" method="procMemberEmailCheck">
+      <permission>everyone</permission>
+      <type>controller</type>
+      <result>xml</result>
+    </action>
+
+   <action name="dispMemberSearch" class="MemberView" method="dispMemberSearch">
+      <permission>everyone</permission>
+      <type>view</type>
+      <template>member.search.php</template>
+    </action>
+   <action name="procMemberUserIdSearch" class="MemberController" method="procMemberUserIdSearch">
+      <permission>everyone</permission>
+      <type>controller</type>
+      <result>xml</result>
+    </action>
+   <action name="procMemberPasswordSearch" class="MemberController" method="procMemberPasswordSearch">
+      <permission>everyone</permission>
+      <type>controller</type>
+      <result>xml</result>
+    </action>
+
+    <!-- 관리자 -->
+   <action name="dispMemberAdminLogin" target="admin" class="MemberView" method="dispMemberAdminLogin">
+      <permission>everyone</permission>
+      <type>view</type>
+      <template>admin.member.login.php</template>
+    </action>
+   <action name="procMemberAdminLogin" target="admin" class="MemberController" method="procMemberAdminLogin">
+      <permission>everyone</permission>
+      <type>controller</type>
+      <result>xml</result>
+    </action>
+
+   <action name="dispMemberAdminConfigInsert" target="admin" class="MemberView" method="dispMemberAdminConfigInsert">
+      <permission>manager</permission>
+      <type>view</type>
+      <template>admin.member.config.insert.php</template>
+    </action>
+   <action name="procMemberAdminConfigInsert" target="admin" module="module" class="ModuleController" method="procModuleInsert">
+      <permission>manager</permission>
+      <type>controller</type>
+      <result>xml</result>
+    </action>
+
+   <action name="dispMemberAdminList" target="admin" class="MemberView" method="dispMemberAdminList">
+      <permission>manager</permission>
+      <type>view</type>
+      <template>admin.member.list.php</template>
+    </action>
+   <action name="dispMemberAdminInsert" target="admin" class="MemberView" method="dispMemberAdminInsert">
+      <permission>manager</permission>
+      <type>view</type>
+      <template>admin.member.insert.php</template>
+    </action>
+   <action name="procMemberAdminInsert" target="admin" class="MemberController" method="procMemberAdminInsert">
+      <permission>manager</permission>
+      <type>controller</type>
+      <result>xml</result>
+    </action>
+   <action name="procMemberAdminDelete" target="admin" class="MemberController" method="procMemberAdminDelete">
+      <permission>manager</permission>
+      <type>controller</type>
+      <result>xml</result>
+    </action>
+
+</module>
