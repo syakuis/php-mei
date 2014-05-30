@@ -10,9 +10,11 @@ Site Building Framework PHP MEI
 
 MEI (Modularize. Extension. Interaction.) 란? 웹프로그램을 모듈화하여 여러 모듈들이 서로 연결되어 하나의 플랫폼이 완성되는 것을 도와주는 사이트 빌딩 프레임워크입니다. 또한 레이아웃과 스킨을 자유롭게 변경할 수 있어 다양한 디자인과 UI를 표현할 수 있어 어떤 모듈의 구성에 따라 웹사이트가 되고 쇼핑몰 혹은 블로그, 카페 사이트로 시스템 구성을 할 수 있습니다.
 
-Modularize : 한번 개발된 프로그램은 재사용이 용의하게 모듈화 합니다.
-Extension : 모듈은 세분화되어 특정 프로그램에 구애받지 않아 확장성에 용의합니다.
-Interaction : 모듈 간의 상호작용이 효율적이며 손쉽게 필요한 모듈을 호출할 수 있습니다.
+
+>Modularize : 한번 개발된 프로그램은 재사용이 용의하게 모듈화 합니다.
+>Extension : 모듈은 세분화되어 특정 프로그램에 구애받지 않아 확장성에 용의합니다.
+>Interaction : 모듈 간의 상호작용이 효율적이며 손쉽게 필요한 모듈을 호출할 수 있습니다.
+
 
 MEI 에는 다음과 같은 기능을 제공합니다.
 
@@ -28,15 +30,15 @@ MEI 에는 다음과 같은 기능을 제공합니다.
 
 사용된 오픈소스는 아래와 같습니다.
 
-jQuery
+* jQuery
 
-jQuery Action
+* jQuery Action
 
-jQuery-ui
-jQuery-mobile
-Bootstrap
+* jQuery-ui
+* jQuery-mobile
+* Bootstrap
 
-SWFUpload
-SmartEditor
-CKEditor
+* SWFUpload
+* SmartEditor
+* CKEditor
 
