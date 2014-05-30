@@ -1,4 +1,4 @@
-Site Building Framework PHP MEI
+Site Building Framework MEI
 =======
 
 ## 소개
