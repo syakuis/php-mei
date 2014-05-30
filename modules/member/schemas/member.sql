@@ -11,7 +11,7 @@ CREATE  TABLE IF NOT EXISTS `member` (
   `memo` TEXT NULL ,
   `is_admin` CHAR(1) NULL DEFAULT 'N' ,
   `status` TINYINT(1) NULL DEFAULT 0 COMMENT '-2 : 탈퇴 , -1 : 정지 , 0 : 일반' ,
-  `sid` VARCHAR(250) NOT NULL ,
+  `sid` VARCHAR(250) NULL ,
   `login_sid` VARCHAR(250) NULL ,
   `login_datetime` CHAR(14) NULL ,
   `login_ipaddress` VARCHAR(128) NULL ,

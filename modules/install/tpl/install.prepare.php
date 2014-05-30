@@ -14,8 +14,6 @@ function _goto() {
         if (success == 'false') {
         var php = jQuery(xml).find('php').text();
         if (php == 'false') jQuery('#php_chk').append("<p class='message'>현재 PHP 버전에 설치할 수 없습니다.</p>");
-        var mysql = jQuery(xml).find('mysql').text();
-        if (mysql == 'false') jQuery('#mysql_chk').append("<p class='message'>현재 MySQL 버전에 설치할 수 없습니다.</p>");
         var grant = jQuery(xml).find('grant').text();
         if (grant == 'false') jQuery('#create_chk').append("<p class='message'>data 폴더 권한이 없습니다.</p>");
         var data_folder = jQuery(xml).find('data_folder').text();
@@ -55,7 +53,7 @@ function _goto() {
 <p>현재 설치되어 있는 PHP Version 은 <code><?php echo phpversion();?></code> 입니다.</p>
 </div>
 
-<div class="bs-callout bs-callout-danger" id="mysql_chk">
+<div class="bs-callout bs-callout-danger">
 <h4>MySQL Version 5.0 이상을 권장합니다.</h4>
 <p>현재 설치되어 있는 MySQL Version 은 <code><?php echo mysql_get_client_info()?></code> 입니다.</p>
 <p>데이터베이스 언어셋은 <code>UTF-8</code> 로 설정하세요. </p>

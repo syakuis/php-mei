@@ -27,7 +27,6 @@ class InstallController {
     $GV = $Context->getGV();
 
     $_php_success = (version_compare(phpversion(), '5.3.0') >= 0);
-    $_mysql_success = (version_compare(mysql_get_client_info(), '5.0') >= 0);
     $_data_grant_success = true;
     $_data_success = true;
 
@@ -58,7 +57,7 @@ class InstallController {
 
     }
 
-    $success = ($_php_success == true && $_mysql_success == true && $_data_grant_success == true && $_data_success == true && $_data_files_success == true && $_data_cache_success == true && $_data_config_success == true && $_data_session_success == true);
+    $success = ($_php_success == true && $_data_grant_success == true && $_data_success == true && $_data_files_success == true && $_data_cache_success == true && $_data_config_success == true && $_data_session_success == true);
 
     if ($success) {
       // 모듈 수집
@@ -66,7 +65,6 @@ class InstallController {
 
     $ModuleContext->put('success', $success);
     $ModuleContext->put('php', $_php_success);
-    $ModuleContext->put('mysql', $_mysql_success);
     $ModuleContext->put('grant', $_data_grant_success);
     $ModuleContext->put('data_folder', $_data_success);
     $ModuleContext->put('files_folder', $_data_files_success);
