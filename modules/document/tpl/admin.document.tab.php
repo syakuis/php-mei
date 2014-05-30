@@ -18,7 +18,6 @@ jQuery(function() {
 
 //]]></script>
 
-<p>
 <ul class="nav nav-pills" id="admin_head_tab">
   <li><a href="./<?php echo _param_get('act=dispDocumentAdminConfigList&module_orl=','?')?>">목록</a></li>
   <?php if ( !empty($module_orl) ) { ?>
@@ -26,4 +25,4 @@ jQuery(function() {
   <li><a href="./<?php echo _param_get('act=dispDocumentAdminGrantInsert','?')?>">권한관리</a></li>
   <?php } ?>
 </ul>
-</p>
+<p></p>

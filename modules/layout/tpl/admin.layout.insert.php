@@ -93,7 +93,7 @@ function save() {
   
   <div class="tc">
   <a class="btn btn-default" href="./<?php echo _param_get('act=dispLayoutAdminList&layout_orl=','?')?>" role="button">목록</a>
-  <button type="button" class="btn btn-primary" onclick="save();">저장</button>
+  <button type="button" class="btn btn-info" onclick="save();">저장</button>
   </div>
 
 </form>

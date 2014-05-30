@@ -4,8 +4,7 @@
 
 <?php
 $module_orl = _param('module_orl');
-
-$grant = $V['object'];
+$grant = $object;
 ?>
 
 
@@ -31,11 +30,10 @@ function save() {
 
 //]]></script>
 
+<div class="well">특정 권한의 대상을 모두 해제하면 로그인하지 않은 회원까지 권한을 가질 수 있습니다.</div>
 
 <form class="form-horizontal" role="form" id="form" method="post" action="?">
 <input type="hidden" name="module_orl" id="module_orl" value="<?php echo $module_orl?>" />
-
-  <p class="bg-info" style="padding:15px;">특정 권한의 대상을 모두 해제하면 로그인하지 않은 회원까지 권한을 가질 수 있습니다.</p>
 
   <div class="form-group">
     <label for="access_privilege" class="col-sm-2 control-label">접근</label>
@@ -107,8 +105,8 @@ function save() {
   </div>
 
   <div class="tc">
-  <a class="btn btn-default" href="./<?php echo _param_get('act=dispPageAdminList&module_orl=','?')?>" role="button">목록</a>
-  <button type="button" class="btn btn-primary" onclick="save();">저장</button>
+  <a class="btn btn-default" href="./<?php echo _param_get('act=dispPageAdminConfigList&module_orl=','?')?>" role="button">목록</a>
+  <button type="button" class="btn btn-info" onclick="save();">저장</button>
   </div>
 
 </form>

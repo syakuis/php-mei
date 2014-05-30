@@ -5,11 +5,11 @@ jQuery(function() {
 
   jQuery('#admin_sidebar_menu a').bootstrap('active',{
     data : [
-    { compare : ['module=message'] },
-    { compare : ['module=layout'] },
-    { compare : ['module=page'] },
-    { compare : ['module=member'] },
-    { compare : ['module=document'] }
+    { compare : ['MessageAdmin'] },
+    { compare : ['LayoutAdmin'] },
+    { compare : ['PageAdmin'] },
+    { compare : ['MemberAdmin'] },
+    { compare : ['DocumentAdmin'] }
     ]
   });
 

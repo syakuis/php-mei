@@ -17,7 +17,7 @@
 
 <?php
 
-foreach($V['list'] as $rs) {
+foreach($list as $rs) {
 	$module_orl = $rs['module_orl'];
 	$module = $rs['module'];
 	$mid = $rs['mid'];
@@ -29,9 +29,9 @@ foreach($V['list'] as $rs) {
 ?>
 <tr>
 <td>
-<a class="btn btn-primary btn-xs" href="./?module=page&mid=<?php echo $mid?>" target="_blank"role="button">열기</a>
-<a class="btn btn-success btn-xs" href="./<?php echo _param_pick("mid=&module=&act=dispPageAdminConfigInsert&module_orl={$module_orl}",'?')?>" role="button">설정</a>
-<button type="button" class="btn btn-danger btn-xs" onclick="">삭제</button>
+<a class="btn btn-default btn-xs" href="./?mid=<?php echo $mid?>" target="_blank"role="button"><span class="glyphicon glyphicon-file"></span></a>
+<a class="btn btn-default btn-xs" href="./<?php echo _param_pick("module=&act=dispPageAdminConfigInsert&module_orl={$module_orl}",'?')?>" role="button"><span class="glyphicon glyphicon-cog"></span></a>
+<button type="button" class="btn btn-default btn-xs" onclick=""><span class="glyphicon glyphicon-trash"></span></button>
 </td>
 <td><?php echo $mid?></td>
 <td><?php echo $module_title?></td>
@@ -39,7 +39,7 @@ foreach($V['list'] as $rs) {
 <td><?php echo $reg_datetime ?></td>
 </tr>
 <?php } ?>
-<?php if ($V['pages']['total_count'] == 0) { ?>
+<?php if ($pages['total_count'] == 0) { ?>
 <tr>
 	<td colspan="5">등록된 게시물이 없습니다.</td>
 </tr>
@@ -62,17 +62,17 @@ foreach($V['list'] as $rs) {
 
   <script type="text/javascript">
     jQuery('#document_navi').jaPageNavigator({
-      page_row : "<?php echo $V['pages']['page_row']?>"
-    , page_link : "<?php echo $V['pages']['page_link']?>"
-    , page : "<?php echo $V['pages']['page']?>"
-    , total_count : "<?php echo $V['pages']['total_count']?>"
+      page_row : "<?php echo $pages['page_row']?>"
+    , page_link : "<?php echo $pages['page_link']?>"
+    , page : "<?php echo $pages['page']?>"
+    , total_count : "<?php echo $pages['total_count']?>"
     });
   </script>
 
   </div>
 
   <div class="col-md-4 tr">
-    <a class="btn btn-primary btn-sm mt20" href="./<?php echo _param_pick('module=&act=dispPageAdminConfigInsert','?')?>" role="button">추가</a>
+    <a class="btn btn-default btn-sm mt20" href="./<?php echo _param_pick('module=&act=dispPageAdminConfigInsert','?')?>" role="button">추가</a>
   </div>
 
 </div>

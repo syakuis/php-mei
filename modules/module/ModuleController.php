@@ -45,7 +45,7 @@ class ModuleController {
 
     $args = array();
     $args['module_orl'] = _param('module_orl',NULL,'POST');
-    $args['module'] = _param('module',NULL,'POST');
+    $args['module'] = _param('module_name',NULL,'POST');
     $args['mid'] = _param('module_id',NULL,'POST');
     $args['module_title'] = _param('module_title',NULL,'POST');
     $args['browser_title'] = _param('browser_title',NULL,'POST');
@@ -54,15 +54,15 @@ class ModuleController {
     $args['header_content'] = _param('header_content',NULL,'POST');
     $args['footer_content'] = _param('footer_content',NULL,'POST');
 
+      
+	  // 멀티인 경우 MID 체크
+	  if ( !empty($args['mid']) ) {
+		if ( !preg_match('/[a-zA-Z0-9-_]+/', $args['mid']) ) return $ModuleContext->resultError("사용할 수 없는 모듈명입니다.");
+		if ( !ModuleDAO::isUniqueMid($args['mid'], $args['module_orl']) ) return $ModuleContext->resultError("사용할 수 없는 모듈명입니다.");
+	  }
+
     try {
       $__Db->begin();
-      
-      // 멀티인 경우 MID 체크
-      if ( $ModuleContext->getModConfig('SINGLE') == false) {
-        // 모듈 명 필터 , 모듈 폴더에 존재하는 mid는 가질수 없음
-        if ( !preg_match('/[a-zA-Z0-9-_]+/', $args['mid']) ) throw new Exception("사용할 수 없는 모듈명입니다.");
-        if ( !ModuleDAO::isUniqueMid($args['mid'], $args['module_orl']) ) throw new Exception("사용할 수 없는 모듈명입니다.");
-      }
 
       if ( empty($args['module_orl']) ) {
         $module_orl = ModuleDAO::insert($args);
@@ -87,7 +87,6 @@ class ModuleController {
 
     } catch(Exception $e) {
       $__Db->rollback();
-      throw new Exception($e);
     }
 
     return $ModuleContext;

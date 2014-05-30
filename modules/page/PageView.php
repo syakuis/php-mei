@@ -19,7 +19,8 @@ class PageView {
     $GV= $Context->getGV();
 
     $V = ModuleObject::getList($GV['_PAGE_']['MODULE']);
-    $ModuleContext->put('V',$V);
+    $ModuleContext->put('list', $V['list']);
+    $ModuleContext->put('pages', $V['pages']);
     return $ModuleContext;
   }
 
@@ -29,18 +30,20 @@ class PageView {
     $GV= $Context->getGV();
 
     $module_orl = _param('module_orl');
-    $V['object'] = ModuleObject::getConfig($module_orl);
-    $V['layout_list'] = LayoutObject::getConfigList();
-    $V['skin_list'] = ModuleHandler::getSkinList($GV['_PAGE_']['SKINS_PATH']);
-    $ModuleContext->put('V',$V);
+    $object = ModuleObject::getConfig($module_orl);
+    $layout_list = LayoutObject::getConfigList();
+    $skin_list = ModuleHandler::getSkinList($GV['_PAGE_']['SKINS_PATH']);
+	$ModuleContext->put('object',$object);
+	$ModuleContext->put('layout_list',$layout_list);
+	$ModuleContext->put('skin_list',$skin_list);
     return $ModuleContext;
   }
 
   function dispPageAdminGrantInsert() {
     $ModuleContext = ModuleContext::getInstance();
     $module_orl = _param('module_orl');
-    $V['object'] = ModuleObject::getGrant($module_orl);
-    $ModuleContext->put('V',$V);
+    $object = ModuleObject::getGrant($module_orl);
+    $ModuleContext->put('object',$object);
     return $ModuleContext;
   }
 

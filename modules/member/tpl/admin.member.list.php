@@ -48,8 +48,8 @@ foreach($list as $rs) {
 ?>
 <tr>
 <td>
-<a class="btn btn-success btn-xs" href="./<?php echo _param_pick("mid=&module=&act=dispMemberAdminInsert&member_orl={$member_orl}",'?')?>" role="button"><span class="glyphicon glyphicon-cog"></span></a>
-<button type="button" class="btn btn-danger btn-xs" onclick="member_delete('<?php echo $member_orl?>');"><span class="glyphicon glyphicon-trash"></span></button>
+<a class="btn btn-default btn-xs" href="./<?php echo _param_pick("mid=&module=&act=dispMemberAdminInsert&member_orl={$member_orl}",'?')?>" role="button"><span class="glyphicon glyphicon-cog"></span></a>
+<button type="button" class="btn btn-default btn-xs" onclick="member_delete('<?php echo $member_orl?>');"><span class="glyphicon glyphicon-trash"></span></button>
 </td>
 <td><?php echo $nickname?> (<?php echo $user_id?>)</td>
 <td><?php echo $user_name?></td>
@@ -92,7 +92,7 @@ foreach($list as $rs) {
   </div>
 
   <div class="col-md-4 tr">
-    <a class="btn btn-primary btn-sm mt20" href="./<?php echo _param_pick('mid=&module=&act=dispMemberAdminInsert','?')?>" role="button">등록</a>
+    <a class="btn btn-default btn-sm mt20" href="./<?php echo _param_pick('mid=&module=&act=dispMemberAdminInsert','?')?>" role="button">등록</a>
   </div>
 
 </div>

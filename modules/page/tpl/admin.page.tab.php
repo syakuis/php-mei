@@ -25,3 +25,4 @@ jQuery(function() {
   <li><a href="./<?php echo _param_get('act=dispPageAdminGrantInsert','?')?>">권한관리</a></li>
   <?php } ?>
 </ul>
+<p></p>

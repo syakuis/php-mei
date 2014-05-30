@@ -5,8 +5,8 @@
 $module_orl = _param('module_orl');
 $mod = 'insert';
 
-if ($V['object'] != NULL) {
-  $rs = $V['object'];
+if ($object != NULL) {
+  $rs = $object;
   $mod = 'update';
   $module_id = $rs['mid'];
   $module_title = $rs['module_title'];
@@ -20,7 +20,7 @@ if ($V['object'] != NULL) {
 ?>
 
 <script type="text/javascript">//<![CDATA[
-
+var mod = '<?php echo $mod?>';
 jQuery(function() {
   jQuery.ja.setValue("#form #skin","<?php echo $skin?>");
   jQuery.ja.setValue("#form #layout_orl","<?php echo $layout_orl?>");
@@ -38,7 +38,7 @@ function save() {
     ],
     param : '<?php echo _param_pick("module=&act=procPageAdminConfigInsert")?>' , 
     ask : 'save',
-    afterSend : function() { location.reload(); }
+    afterSend : (mod == 'insert') ? function() { location.href = './<?php echo _param_pick('module=&act=dispPageAdminConfigList','?')?>'; } : function() { location.reload(); }
   });
 
 }
@@ -46,6 +46,7 @@ function save() {
 //]]></script>
 
 <form class="form-horizontal" role="form" id="form" method="post" action="?">
+<input type="hidden" name="module_name" id="module_name" value="<?php echo $GV['_PAGE_']['MODULE']?>" />
 <input type="hidden" name="module_orl" id="module_orl" value="<?php echo $module_orl?>" />
 
   <p class="lead">모듈 설정</p>
@@ -77,7 +78,7 @@ function save() {
 
       <select class="form-control" name="layout_orl" id="layout_orl">
       <option value="0" selected="selected">선택</option>
-      <?php foreach($V['layout_list'] as $layout) { ?>
+      <?php foreach($layout_list as $layout) { ?>
       <option value="<?php echo $layout['layout_orl']?>"><?php echo $layout['title']?></option>
       <?php } ?>
       </select>
@@ -90,8 +91,8 @@ function save() {
     <div class="col-sm-10">
 
       <select class="form-control" name="skin" id="skin">
-      <option value="0" selected="selected">선택</option>
-      <?php foreach($V['skin_list'] as $skin) { ?>
+      <option value="" selected="selected">선택</option>
+      <?php foreach($skin_list as $skin) { ?>
       <option value="<?php echo $skin?>"><?php echo $skin?></option>
       <?php } ?>
       </select>
@@ -119,7 +120,7 @@ function save() {
 
   <div class="tc">
   <a class="btn btn-default" href="./<?php echo _param_get('act=dispPageAdminConfigList&module_orl=','?')?>" role="button">목록</a>
-  <button type="button" class="btn btn-primary" onclick="save();">저장</button>
+  <button type="button" class="btn btn-info" onclick="save();">저장</button>
   </div>
 
 </form>

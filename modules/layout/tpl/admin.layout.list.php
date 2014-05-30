@@ -46,8 +46,8 @@ foreach($list as $rs) {
 ?>
 <tr>
 <td>
-<a class="btn btn-success btn-xs" href="./<?php echo _param_pick("module=&act=dispLayoutAdminInsert&layout_orl={$layout_orl}",'?')?>" role="button">설정</a>
-<button type="button" class="btn btn-danger btn-xs" onclick="_admin_del('<?php echo $layout_orl?>');">삭제</button>
+<a class="btn btn-default btn-xs" href="./<?php echo _param_pick("module=&act=dispLayoutAdminInsert&layout_orl={$layout_orl}",'?')?>" role="button"><span class="glyphicon glyphicon-cog"></span></a>
+<button type="button" class="btn btn-default btn-xs" onclick="_admin_del('<?php echo $layout_orl?>');"><span class="glyphicon glyphicon-trash"></button></button>
 </td>
 <td><?php echo $layout?></td>
 <td><?php echo $title?></td>
@@ -89,7 +89,7 @@ foreach($list as $rs) {
   </div>
 
   <div class="col-md-4 tr">
-    <a class="btn btn-primary btn-sm mt20" href="./<?php echo _param_pick('module=&act=dispLayoutAdminInsert','?')?>" role="button">추가</a>
+    <a class="btn btn-default btn-sm mt20" href="./<?php echo _param_pick('module=&act=dispLayoutAdminInsert','?')?>" role="button">추가</a>
   </div>
 
 </div>

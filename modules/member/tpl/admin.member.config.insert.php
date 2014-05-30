@@ -93,7 +93,7 @@ function save() {
   </div>
 
   <div class="tc">
-  <button type="button" class="btn btn-primary" onclick="save();">저장</button>
+  <button type="button" class="btn btn-info" onclick="save();">저장</button>
   </div>
 
 </form>

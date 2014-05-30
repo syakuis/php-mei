@@ -29,9 +29,9 @@ foreach($list as $rs) {
 ?>
 <tr>
 <td>
-<a class="btn btn-default btn-xs" href="./?mid=<?php echo $mid?>" target="_blank"role="button"><span class="glyphicon glyphicon-file"></a>
+<a class="btn btn-default btn-xs" href="./?mid=<?php echo $mid?>" target="_blank"role="button"><span class="glyphicon glyphicon-file"></span></a>
 <a class="btn btn-default btn-xs" href="./<?php echo _param_pick("module=&act=dispDocumentAdminConfigInsert&module_orl={$module_orl}",'?')?>" role="button"><span class="glyphicon glyphicon-cog"></span></a>
-<button type="button" class="btn btn-default btn-xs" onclick=""><span class="glyphicon glyphicon-trash"></button>
+<button type="button" class="btn btn-default btn-xs" onclick=""><span class="glyphicon glyphicon-trash"></span></button>
 </td>
 <td><?php echo $mid?></td>
 <td><?php echo $module_title?></td>
