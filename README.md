@@ -4,7 +4,7 @@ Site Building Framework PHP MEI
 ## 소개
 
 * 개발 언어 : PHP 5.3+ / MySQL 5.0+
-* 공식 카페 : http://syaku.tistory.com/234
+* 공식 카페 : http://cafe.naver.com/phpmei
 * 설치하기 : 
 * 메뉴얼 : 
 
