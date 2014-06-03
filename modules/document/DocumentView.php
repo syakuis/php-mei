@@ -8,70 +8,13 @@
 */
 class DocumentView {
 
-  function widgDocumentList($length = 0,$limit = 10,$mid = NULL,$forum_orl = NULL,$title = NULL,$widget = 'default') {
-    $GV = $GLOBALS['GV'];
-    $__Db = Db::getInstance();
-    $__Document = $GLOBALS['__Document'];
-    $__Forum = $GLOBALS['__Forum'];
-
-    $module_orl = NULL;
-
-    if ($mid != NULL) {
-      $__ModuleObject = $GLOBALS['__ModuleObject'];
-      $VAR['M'] = $__ModuleObject->getConfig($mid,'mid');
-
-      $module_orl = $VAR['M']['module_orl'];
-
-      if ( $VAR['M']['options_is_forum'] == 'Y' ) {
-        $VAR['FORUM'] = $__Forum->_object($forum_orl);
-        if ( $title == NULL ) $title = $VAR['FORUM']['forum_title'];
-      }
-
-      if ( $title == NULL ) $title = $VAR['M']['module_title'];
-
-    }
-
-    // 링크 생성
-    $VAR['title'] = $title;
-    $VAR['mid'] = $mid;
-
-    $VAR['link'] = './?module=document';
-    if ( $mid != NULL ) $VAR['link'] .= "&mid={$mid}";
-
-    $VAR['list'] = array();
-    $result = $__Document->_portlet_list($module_orl,$forum_orl,$limit);
-
-    while($rs = $__Db->fetch($result)) {
-      if ( $mid == NULL ) { $rs['link'] = $VAR['link'] . "&mid={$rs['module_orl']}&forum_orl={$rs['forum_orl']}"; }
-      else { $rs['link'] = $VAR['link'] . "&forum_orl={$rs['forum_orl']}"; }
-
-      // 새글 표시
-      $is_new = _new_display($rs['reg_datetime']);
-      $rs['is_new'] = ($is_new && strpos($VAR['M']['options_icons'],'new') > -1);
-      // 첨부파일 존재 유무
-      $rs['is_file'] = ($rs['file_count'] > 0 && strpos($VAR['M']['options_icons'],'file') > -1);
-      // 댓글 존재 유무
-      $rs['is_comment'] = ($rs['comment_count'] > 0 && $VAR['M']['options_is_comment'] == 'Y');
-
-      if ($length > 0) $rs['subject'] = cut_str($rs['subject'],$length);
-      array_push($VAR['list'],$rs);
-    }
-
-    ob_start();
-    include $GV['_DOCUMENT_']['MODULE_PATH'] . "/widgets/{$widget}/widget.php";
-    $view = ob_get_contents();
-    ob_end_clean();
-
-    return $view;
-  }
-
   function dispDocumentList() {
     $M = ModuleContext::getInstance();
     $C = Context::getInstance();
     $GV = $C->getGV();
     $MOD = $M->getMod();
 
-    if (!$C->getGrant('GRANT_LIST')) $M->resultError("접속 권한이 없습니다.");
+    if (!$C->getGrant('GRANT_LIST')) return $M->resultError("접속 권한이 없습니다.");
 
     $sch_type = _param('sch_type');
     $sch_value = _param('sch_value');
@@ -95,7 +38,6 @@ class DocumentView {
     foreach($result as $rs) {
       
       $rs['num'] = $pages['virtual_idx'] - $cnt;
-      if ($rs['is_notice'] == 'Y') { $rs['num'] = '공지'; }
       // 새글 표시
       $is_new = _new_display($rs['reg_datetime']);
       $rs['is_new'] = ($is_new && strpos($MOD['options_icons'],'new') > -1);
@@ -125,7 +67,6 @@ class DocumentView {
     $document_orl = _param('document_orl');
 
     if ( !empty($document_orl) ) {
-      $GLOBALS['GV']['M']['target_orl'] = $document_orl;
 
       // 조회수 업데이트
       DocumentObject::documentReadedUpdate($document_orl, $module_orl);

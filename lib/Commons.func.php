@@ -23,14 +23,19 @@
   }
 
   // 임의의 키명이 포함된 배열만 추출
-  function _array_strpos($array, $key, $string = FALSE) {
+  function _array_strpos($array, $key, $string = FALSE, $encode = FALSE) {
     $return = array();
     foreach($array as $k => $v) {
-      
+      if ($encode && !empty($v) ) $v = urlencode($v);
+
       if (strpos($k,$key) > -1) {
-        if ($string) $return[$k] = _strval($v);
-      } else {
-        $return[$k] = $v;
+
+        if ($string) {
+          $return[$k] = _strval($v);
+        } else {
+          $return[$k] = $v;
+        }
+
       }
 
     }

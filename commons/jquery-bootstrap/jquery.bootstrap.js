@@ -78,7 +78,7 @@
       this.active();
     }
 
-  }
+  };
 
   $.fn.bootstrap = function(method,options) {
 

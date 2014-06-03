@@ -7,7 +7,7 @@ var MEIeditor = [ ];
 var objEditor = [ ];
 
 var ckeditor_config = {
-  resize_enabled : false,
+  resize_enabled : true,
   enterMode : CKEDITOR.ENTER_BR , 
   shiftEnterMode : CKEDITOR.ENTER_P , 
   toolbarCanCollapse : true , 

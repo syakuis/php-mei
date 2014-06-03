@@ -75,12 +75,9 @@ if (mod == "update") {
   jQuery.ja.setValue("#form #options_is_subject_style","<?php echo $options_is_subject_style?>");
 
   jQuery.ja.setValue("#form #options_is_file","<?php echo $options_is_file?>");
-  
-
 }
 
 });
-
 
 function save() {
 
@@ -95,7 +92,7 @@ function save() {
     ],
     param : '<?php echo _param_pick("module=&act=procDocumentAdminConfigInsert")?>' , 
     ask : mod,
-    afterSend : function() { location.reload(); }
+    afterSend : (mod == 'insert') ? function() { location.href='./<?php echo _param_pick('module=&act=dispDocumentAdminConfigList','?')?>'; } : function() { location.reload(); }
   });
 
 }

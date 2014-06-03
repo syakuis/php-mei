@@ -31,7 +31,7 @@ function save() {
     ],
     param : '<?php echo _param_pick("module=&act=procLayoutAdminInsert")?>' , 
     ask : mod , 
-    redirect : "/?<?php echo _param_pick("module=&act=dispLayoutAdminList")?>"
+    afterSend : (mod == 'insert') ? function() { location.href='./<?php echo _param_pick('module=&act=dispLayoutAdminList','?')?>'; } : function() { location.reload(); }
   });
 
 }
@@ -64,8 +64,8 @@ function save() {
 
       <select class="form-control" name="layout" id="layout">
         <option value="">선택</option>
-        <?php foreach($layout_list as $layout) { ?>
-        <option value="<?php echo $layout?>"><?php echo $layout?></option>
+        <?php foreach($layout_list as $v) { ?>
+        <option value="<?php echo $v?>"><?php echo $v?></option>
         <?php } ?>
       </select>
 
@@ -90,7 +90,12 @@ function save() {
       <span class="help-block">HTML의 &lt;head>와 &lt;/head> 사이에 들어가는 코드를 직접 입력할 수 있습니다.&lt;script, &lt;style 또는 &lt;meta 태그 등을 이용하실 수 있습니다</span>
     </div>
   </div>
-  
+
+  <?php
+    $layout_options = $Context->getPath('LAYOUTS_PATH') . '/' .$layout . '/layout.options.php';
+    if ( file_exists($layout_options) && $layout != NULL) include_once $layout_options;
+  ?>
+
   <div class="tc">
   <a class="btn btn-default" href="./<?php echo _param_get('act=dispLayoutAdminList&layout_orl=','?')?>" role="button">목록</a>
   <button type="button" class="btn btn-info" onclick="save();">저장</button>

@@ -19,8 +19,9 @@ class LayoutController {
     $args['layout'] = _param('layout',NULL,'POST');
     $args['title'] = _param('title',NULL,'POST');
     $args['header_script'] = _param('header_script',NULL,'POST');
-    $args['extra_vars'] = _param('extra_vars',NULL,'POST');
     $args['is_mobile'] = _param('is_mobile','N','POST');
+    $extra_vars = _array_strpos($_POST,'options_', FALSE, TRUE);
+    $args['extra_vars'] = (!empty($extra_vars)) ? json_encode($extra_vars) : '';
 
     try {
       $__Db->begin();

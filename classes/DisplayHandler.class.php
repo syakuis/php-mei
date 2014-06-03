@@ -85,6 +85,7 @@ class DisplayHandler {
     $Context = $this->Context;
     $GV = $Context->getGV();
     $M = $Context->getM();
+    $LAYOUT = $Context->getLayout();
     $GRANT = $Context->getGrant();
     $ModuleContext = $this->ModuleContext;
     $MOD = $ModuleContext->getMod();

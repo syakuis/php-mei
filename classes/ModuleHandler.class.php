@@ -203,8 +203,8 @@ class ModuleHandler {
 
     if ($module == NULL && $act != NULL) {
 
-      foreach(self::getModuleNames() as $module) {
-        $ACT_XML = self::actionXml($module);
+      foreach(self::getModuleNames() as $v) {
+        $ACT_XML = self::actionXml($v);
         $ACT_CONFIG = self::actionConfig($ACT_XML->action, $act);
         if ($ACT_CONFIG != NULL) {
           $result['ACT_XML'] = $ACT_XML;

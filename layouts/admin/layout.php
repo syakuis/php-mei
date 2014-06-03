@@ -1,4 +1,10 @@
 <?php if (!defined("__SYAKU__")) exit; ?>
+<?php  include_once $GV['PATH']['ADDONS_PATH'] . "/ui/bootstrap/addon.php"; ?>
+<!--<link href="./layouts/admin/themes/bootswatch.yeti.css" rel="stylesheet">-->
+<link href="./layouts/admin/css/offcanvas.css" rel="stylesheet">
+<link href="./layouts/admin/css/style.css" rel="stylesheet">
+<script src="./layouts/admin/js/offcanvas.js"></script>
+
 <script type="text/javascript">//<![CDATA[
 
 jQuery(function() {

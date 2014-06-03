@@ -21,7 +21,7 @@ class LayoutView {
     $ModuleContext = ModuleContext::getInstance();
 
     $layout_orl = _param('layout_orl');
-    if ( !empty($layout_orl) ) $object = LayoutDAO::selectOnce($layout_orl);
+    if ( !empty($layout_orl) ) $object = LayoutObject::getConfig($layout_orl);
     $ModuleContext->put('object',$object);
     $layout_list = ModuleHandler::getLayoutList();
     $ModuleContext->put('layout_list',$layout_list);

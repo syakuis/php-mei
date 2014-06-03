@@ -15,7 +15,13 @@ class LayoutObject {
 
   // 레이아웃 정보
   function getConfig($layout_orl) {
-    return LayoutDAO::selectOnce($layout_orl);
+    $object = LayoutDAO::selectOnce($layout_orl);
+    if ( !empty($object['extra_vars']) ) {
+      $extra_vars = urldecode($object['extra_vars']);
+      $extra_vars = json_decode($extra_vars, true);
+      $object = array_merge($object, $extra_vars);
+    }
+    return $object;
   }
 
 }

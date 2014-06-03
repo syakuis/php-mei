@@ -73,13 +73,7 @@ function form_save() {
       jQuery("#form #nicckname2").val(jQuery("#form #nicckname").val());
       jQuery("#form #email2").val(jQuery("#form #email").val());
     },
-    <?php if($mod == 'insert') { ?>
-    redirect : './<?php echo _param_pick('module=&act=dispMemberAdminList','?')?>'
-    <?php } else { ?>
-    afterSend : function() {
-      location.reload();
-    }
-    <?php } ?>
+    afterSend : (mod == 'insert') ? function() { location.href='./<?php echo _param_pick('module=&act=dispMemberAdminList','?')?>'; } : function() { location.reload(); }
   });
 
 }

@@ -1,19 +1,15 @@
 <?php if (!defined("__SYAKU__")) exit; ?>
 <?php include_once "{$GV['_DOCUMENT_']['MODULE_PATH']}/tpl/document.header.php"; ?>
 
-<div class="sub_column_content">
+<div class="panel panel-default">
+  <div class="panel-heading">
+Total <?php echo $pages['total_page']?>/<?php echo $pages['page']?>
+  </div>
 
-<table cellspacing="0" border="1" class="tbl_type">
+<table class="table table-hover">
 <colgroup>
 <col width="80"><col><col width="115"><col width="85"><col width="60"><col width="60">
 </colgroup>
-<caption>Total <?php echo $pages['total_page']?>/<?php echo $pages['page']?>
-  <ul>
-    <?php if ($GV['GRANT_ADMIN']) { ?>
-    <li><a href="?mid=admin&module=document&act=dispDocumentAdminList">admin</a></li>
-    <?php } ?>
-  </ul>
-</caption>
 <thead>
 <tr>
 <th scope="col">No</th>
@@ -28,36 +24,32 @@
 
 <?php
 foreach($list as $rs) {
-  $num = $rs['num'];
-	$document_orl = $rs['document_orl'];
+$num = $rs['num'];
+$document_orl = $rs['document_orl'];
+$subject = $rs['subject'];
+$is_notice = $rs['is_notice'];
+$is_bold = $rs['is_bold'];
+$color = $rs['color'];
+$style = $rs['style'];
 
-	$forum_orl = $rs['forum_orl'];
-	$forum_title = $rs['forum_title'];
+$content = $rs['content'];
 
-	$subject = $rs['subject'];
-	$is_notice = $rs['is_notice'];
-	$is_bold = $rs['is_bold'];
-	$color = $rs['color'];
-	$style = $rs['style'];
+$member_orl = $rs['member_orl'];
+$user_id = $rs['user_id'];
+$nickname = $rs['nickname'];
 
-	$content = $rs['content'];
+$readed_count = $rs['readed_count'];
+$file_count = $rs['file_count'];
+$comment_count = $rs['comment_count'];
+$good_count = $rs['good_count'];
+$bad_count = $rs['bad_count'];
+$accuse_count = $rs['accuse_count'];
 
-  $member_orl = $rs['member_orl'];
-	$user_id = $rs['user_id'];
-	$nickname = $rs['nickname'];
+$state = $rs['state'];
 
-	$readed_count = $rs['readed_count'];
-	$file_count = $rs['file_count'];
-	$comment_count = $rs['comment_count'];
-	$good_count = $rs['good_count'];
-	$bad_count = $rs['bad_count'];
-	$accuse_count = $rs['accuse_count'];
+$reg_datetime = _date('$1/$2/$3',$rs['reg_datetime']); 
 
-	$state = $rs['state'];
-
-	$reg_datetime = _date('$1/$2/$3',$rs['reg_datetime']); 
-
-  $ipaddress = $rs['ipaddress'];
+$ipaddress = $rs['ipaddress'];
 
   $subject_style = "";
   if ($is_bold == 'Y') { $subject_style .= 'font-weight :bold;'; }
@@ -65,24 +57,17 @@ foreach($list as $rs) {
   if ( !empty($style) ) { $subject_style .= " {$style}"; }
 ?>
 <tr>
-<td class="num"><?php echo $num?></td>
+<td class="num"><?php if ($rs['is_notice'] == 'Y') { ?><span class="label label-primary">공지</span><?php } else { ?><?php echo $num?><?php } ?></td>
 <td class="title">
-<?php if ($GV['M']['options_is_forum'] == 'Y' && !empty($forum_title) ) { ?>[<?php echo $forum_title?>]&nbsp;<?php } ?>
-<a href="./<?php echo _param_get("act=dispDocumentView&forum_orl={$forum_orl}&document_orl={$document_orl}",'?')?>"><span style="<?php echo $subject_style?>"><?php echo $subject?></span></a>
-<?php if ($rs['is_new']) { ?>
-<img src="<?php echo $GV['_DOCUMENT_']['MODULE_R_PATH']?>/images/bullet_new.gif" alt="새글" class="new">
-<?php } ?>
-<?php if ($rs['is_file']) { ?>
-<img src="<?php echo $GV['_DOCUMENT_']['MODULE_R_PATH']?>/images/bullet_disk.png" alt="파일" class="pic">
-<?php } ?>
-<?php if ($rs['is_comment']) { ?>
-<a href="./<?php echo _param_get("act=dispDocumentView&forum_orl={$forum_orl}&document_orl={$document_orl}",'?')?>#comment" class="comment">[<?php echo $comment_count?>]</a>
-<?php } ?>
+<a href="./<?php echo _param_get("act=dispDocumentView&document_orl={$document_orl}",'?')?>"><span style="<?php echo $subject_style?>"><?php echo $subject?></span></a>
+<?php if ($rs['is_new']) { ?>&nbsp;<span class="label label-danger">새글</span><?php } ?>
+<?php if ($rs['is_file']) { ?>&nbsp;<span class="label label-info">첨부&nbsp;<?php echo $file_count?></span><?php } ?>
+<?php if ($rs['is_comment']) { ?>&nbsp;<a href="./<?php echo _param_get("act=dispDocumentView&document_orl={$document_orl}",'?')?>#comment" class="comment"><span class="label label-default">댓글&nbsp;<?php echo $comment_count?></span></a><?php } ?>&nbsp;
 </td>
 <td><?php echo $nickname ?></td>
-<td class="date"><?php echo $reg_datetime ?></td>
-<td class="hit"><?php echo $readed_count ?></td>
-<td class="hit"><?php echo $good_count ?></td>
+<td><?php echo $reg_datetime ?></td>
+<td><?php echo $readed_count ?></td>
+<td><?php echo $good_count ?></td>
 </tr>
 <?php }?>
 <?php if ($pages['total_count'] == 0) { ?>
@@ -93,19 +78,36 @@ foreach($list as $rs) {
 </tbody>
 </table>
 
-<div style="margin-top:5px;">
-<span class="button medium"><a href="./<?php echo _param_pick('mid=&forum_orl=&module=&act=dispDocumentInsert','?')?>">쓰기</a></span>
 </div>
 
-<div class="paginate_complex" id="document_navi">
-  <a class="direction sprev start" href="#"><span></span><span></span>&nbsp;처음</a>
-  <a class="direction sprev prev" href="#"><span></span>&nbsp;이전&nbsp;({page_link})</a>
-  <span class="pageaction"></span>
-  <a class="num" href="">{page}</a>
-  <strong class="now">{page}</strong>
-  <span class="div">&nbsp;</span>
-  <a class="direction snext next" href="#">다음&nbsp;({page_link})&nbsp;<span></span></a>
-  <a class="direction snext end" href="#">끝&nbsp;<span></span><span></span></a>
+<div class="row">
+  <div class="col-md-8">
+
+  <ul class="pagination pagination-sm" id="document_navi">
+    <li class="prev"><a href="#">&laquo;</a></li>
+    <li class="disabled prevx"><a href="#">&laquo;</a></li>
+    <span class="pageaction"></span>
+    <li class="num"><a href="#">{page}</a></li>
+    <li class="active now"><a href="#">{page} <span class="sr-only">(current)</span></a></li>
+    <li class="next"><a href="#">&raquo;</a></li>
+    <li class="disabled nextx"><a href="#">&raquo;</a></li>
+  </ul>
+
+  <script type="text/javascript">
+    jQuery('#document_navi').jaPageNavigator({
+      page_row : "<?php echo $pages['page_row']?>"
+    , page_link : "<?php echo $pages['page_link']?>"
+    , page : "<?php echo $pages['page']?>"
+    , total_count : "<?php echo $pages['total_count']?>"
+    });
+  </script>
+
+  </div>
+
+  <div class="col-md-4 tr"><p></p>
+    <a class="btn btn-default btn-sm" href="./<?php echo _param_pick('mid=&act=dispDocumentInsert','?')?>" role="button">쓰기</a>
+  </div>
+
 </div>
 
 <div class="content_search tc">
@@ -125,18 +127,9 @@ foreach($list as $rs) {
 </div>
 
 <script type="text/javascript">
-jQuery('#document_navi').jaPageNavigator({
-    page_row : "<?php echo $pages['page_row']?>"
-  , page_link : "<?php echo $pages['page_link']?>"
-  , page : "<?php echo $pages['page']?>"
-  , total_count : "<?php echo $pages['total_count']?>"
-});
-
 // parameter input create
-jQuery.jaAction.paramCreateInput('#form_search','<?php echo _param_pick('mid=&forum_orl=&module=','?')?>');
+jQuery.jaAction.paramCreateInput('#form_search','<?php echo _param_pick('mid=&module=','?')?>');
 jQuery.ja.setValue("#form_search #sch_type","<?php echo _param('sch_type')?>");
 </script>
-
-</div>
 
 <?php include_once "{$GV['_DOCUMENT_']['MODULE_PATH']}/tpl/document.footer.php"; ?>
