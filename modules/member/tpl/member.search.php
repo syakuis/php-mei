@@ -36,9 +36,8 @@ function password_search() {
 
 </script>
 
-
-<div style="width:40%;margin:0 auto;">
-
+<div class="clearfix">
+<div style="width:40%;" class="pull-left">
 <div class="panel panel-default">
   <div class="panel-body">계정 찾기</div>
   <div class="panel-footer">
@@ -60,7 +59,9 @@ function password_search() {
 
   </div>
 </div>
+</div>
 
+<div style="width:40%;" class="pull-right">
 <div class="panel panel-default">
   <div class="panel-body">암호 찾기</div>
   <div class="panel-footer">
@@ -86,7 +87,6 @@ function password_search() {
 
   </div>
 </div>
-
 </div>
-
+</div>
 <?php include_once "{$GV['_MEMBER_']['MODULE_PATH']}/tpl/member.footer.php"; ?>

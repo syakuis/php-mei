@@ -1,14 +1,12 @@
 <?php if (!defined("__SYAKU__")) exit; ?>
 <?php include_once "{$GV['_DOCUMENT_']['MODULE_PATH']}/tpl/document.header.php"; ?>
 
-<div class="panel panel-default">
-  <div class="panel-heading">
-Total <?php echo $pages['total_page']?>/<?php echo $pages['page']?>
-  </div>
+<div class="panel panel-default clearfix">
+<div class="panel-body">Total <?php echo $pages['total_page']?>/<?php echo $pages['page']?></div>
 
 <table class="table table-hover">
 <colgroup>
-<col width="80"><col><col width="115"><col width="85"><col width="60"><col width="60">
+<col width="60"><col><col width="115"><col width="85"><col width="60"><col width="60">
 </colgroup>
 <thead>
 <tr>
@@ -80,50 +78,51 @@ $ipaddress = $rs['ipaddress'];
 
 </div>
 
-<div class="row">
-  <div class="col-md-8">
+<div class="text-center">
 
-  <ul class="pagination pagination-sm" id="document_navi">
-    <li class="prev"><a href="#">&laquo;</a></li>
-    <li class="disabled prevx"><a href="#">&laquo;</a></li>
-    <span class="pageaction"></span>
-    <li class="num"><a href="#">{page}</a></li>
-    <li class="active now"><a href="#">{page} <span class="sr-only">(current)</span></a></li>
-    <li class="next"><a href="#">&raquo;</a></li>
-    <li class="disabled nextx"><a href="#">&raquo;</a></li>
-  </ul>
+<ul class="pagination pagination-sm" id="document_navi">
+  <li class="prev"><a href="#">&laquo;</a></li>
+  <li class="disabled prevx"><a href="#">&laquo;</a></li>
+  <span class="pageaction"></span>
+  <li class="num"><a href="#">{page}</a></li>
+  <li class="active now"><a href="#">{page} <span class="sr-only">(current)</span></a></li>
+  <li class="next"><a href="#">&raquo;</a></li>
+  <li class="disabled nextx"><a href="#">&raquo;</a></li>
+</ul>
 
-  <script type="text/javascript">
-    jQuery('#document_navi').jaPageNavigator({
-      page_row : "<?php echo $pages['page_row']?>"
-    , page_link : "<?php echo $pages['page_link']?>"
-    , page : "<?php echo $pages['page']?>"
-    , total_count : "<?php echo $pages['total_count']?>"
-    });
-  </script>
-
-  </div>
-
-  <div class="col-md-4 tr"><p></p>
-    <a class="btn btn-default btn-sm" href="./<?php echo _param_pick('mid=&act=dispDocumentInsert','?')?>" role="button">쓰기</a>
-  </div>
+<script type="text/javascript">
+  jQuery('#document_navi').jaPageNavigator({
+    page_row : "<?php echo $pages['page_row']?>"
+  , page_link : "<?php echo $pages['page_link']?>"
+  , page : "<?php echo $pages['page']?>"
+  , total_count : "<?php echo $pages['total_count']?>"
+  });
+</script>
 
 </div>
 
-<div class="content_search tc">
+<div class="clearfix">
+<div class="pull-left">
 <form id="form_search" method="get" action="?">
-  <fieldset>
-      <select id="sch_type" name="sch_type">
-        <option value="">검색</option>
-        <option value="subject">제목</option>
-        <option value="content_text">내용</option>
-        <option value="nickname">닉네임</option>
-        <option value="user_id">아이디</option>
-      </select>
-     <input type="text" class="i_search w200" id="sch_value" name="sch_value" value="<?php echo _param('sch_value')?>" />
-     <span class="button medium"><input type="submit" value="검색" /></span>
-  </fieldset>
+<div class="input-group">
+  <span class="input-group-addon">
+    <select id="sch_type" name="sch_type" style="font-size:11px;">
+    <option value="">검색</option>
+    <option value="subject">제목</option>
+    <option value="content_text">내용</option>
+    <option value="nickname">닉네임</option>
+    <option value="user_id">아이디</option>
+    </select>
+  </span>
+  <input type="text" class="form-control" id="sch_value" name="sch_value" value="<?php echo _param('sch_value')?>" />
+  <span class="input-group-btn"><button class="btn btn-default" type="submit">검색</button></span>
+</div>
 </form>
+</div>
+
+<div class="pull-right">
+  <a class="btn btn-default" href="./<?php echo _param_pick('mid=&act=dispDocumentInsert','?')?>" role="button">쓰기</a>
+</div>
 </div>
 
 <script type="text/javascript">

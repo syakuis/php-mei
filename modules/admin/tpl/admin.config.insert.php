@@ -14,7 +14,6 @@ function save() {
     filter : [
       { target : "#module_title", params : "&filter=notnull&title=모듈명" }
       ,{ target : "#browser_title", params : "&filter=notnull&title=브라우저 제목" }
-      ,{ target : "#layout_orl", params : "&filter=notnull&title=레이아웃" }
       ,{ target : "#options_default_module", params : "&filter=notnull&title=기본모듈선택" }
     ],
     param : '<?php echo _param_pick("module=&act=procAdminConfigInsert")?>' , 
@@ -46,19 +45,6 @@ function return_data(data) {
     <label for="browser_title" class="col-sm-2 control-label">브라우저 제목</label>
     <div class="col-sm-10">
       <input type="text" class="form-control" id="browser_title" name="browser_title" value="<?php echo $browser_title?>" placeholder="브라우저 제목을 입력하세요." />
-    </div>
-  </div>
-
-  <div class="form-group">
-    <label for="layout_orl" class="col-sm-2 control-label">레이아웃</label>
-    <div class="col-sm-10">
-
-      <select class="form-control" name="layout_orl" id="layout_orl">
-      <?php foreach(LayoutObject::getConfigList() as $layout) { ?>
-      <option value="<?php echo $layout['layout_orl']?>"><?php echo $layout['title']?></option>
-      <?php } ?>
-      </select>
-      <span class="help-block">관리자 모듈의 레이아웃을 선택합니다.</span>
     </div>
   </div>
 

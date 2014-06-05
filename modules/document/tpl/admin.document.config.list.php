@@ -47,8 +47,8 @@ foreach($list as $rs) {
 </tbody>
 </table>
 
-<div class="row">
-  <div class="col-md-8">
+<div class="clearfix">
+  <div class="pull-left">
 
   <ul class="pagination pagination-sm" id="document_navi">
     <li class="prev"><a href="#">&laquo;</a></li>
@@ -71,7 +71,7 @@ foreach($list as $rs) {
 
   </div>
 
-  <div class="col-md-4 tr">
+  <div class="pull-right">
     <a class="btn btn-default btn-sm mt20" href="./<?php echo _param_pick('module=&act=dispDocumentAdminConfigInsert','?')?>" role="button">추가</a>
   </div>
 

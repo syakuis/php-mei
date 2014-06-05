@@ -54,7 +54,7 @@ function document_voted(type) {
 <input type="hidden" id="document_orl" name="document_orl" value="<?php echo $document_orl?>" />
 </form>
 
-<div class="page-header">
+<div>
   <h2><?php echo $subject?>&nbsp;<small><?php echo $nickname?></small></h2>
   <ul class="list-inline">
     <li><?php echo $reg_datetime?></li>
@@ -64,44 +64,40 @@ function document_voted(type) {
   </ul>
 </div>
 
-<div>
-<p>&nbsp;</p>
-<p><?php echo $content?></p>
-<p>&nbsp;</p>
-<p class="text-center">
-<button type="button" class="btn btn-danger btn-lg" onclick="document_voted('good');"><span class="glyphicon glyphicon-thumbs-up"></span>&nbsp;<?php echo $good_count?></button>
-<button type="button" class="btn btn-default btn-lg" onclick="document_voted('bad');"><span class="glyphicon glyphicon-thumbs-down"></span>&nbsp; <?php echo $bad_count?></button>
-</p>
-<p>&nbsp;</p>
-<p>
-<?php foreach($file_uploader_list as $rs) { ?>
-<a href="<?php echo $GV['PATH']['FILES_R_PATH'].$rs['path']?>"><span class="label label-default"><?php echo $rs['filename']?>&nbsp;<?php echo $rs['size_unit']?></span></a>
-<?php } ?>
-</p>
-<p>&nbsp;</p>
-</div>
-
-
-<div>
-  <a class="btn btn-default" href="./<?php echo _param_get('act=&document_orl=&cpage=','?')?>" role="button">목록</a>
-  <a class="btn btn-default" href="./<?php echo _param_pick('mid=&act=dispDocumentInsert','?')?>" role="button">쓰기</a>
-  <?php if ($GRANT_MINE) { ?>
-  <script type="text/javascript">
-  function form_del() {
-    jQuery('#form').jaAction({ 
-      param : '<?php echo _param_pick("mid=&module=&act=procDocumentDelete")?>',
-      ask : 'del' ,
-      redirect : './<?php echo _param_pick('mid=&module=&forum_orl=','?')?>'
-    });
-  }
-  </script>
-  <a class="btn btn-info" href="./<?php echo _param_get('act=dispDocumentInsert','?')?>" role="button">수정</a>
-  <button type="button" class="btn btn-danger" onclick="form_del();">삭제</button>
-  <?php } ?>
+<div class="panel panel-default clearfix">
+  <div class="panel-body">
+    <?php echo $content?>
+    <p>&nbsp;</p>
+    <p class="text-center">
+    <button type="button" class="btn btn-danger btn-lg" onclick="document_voted('good');"><span class="glyphicon glyphicon-thumbs-up"></span>&nbsp;<?php echo $good_count?></button>
+    <button type="button" class="btn btn-default btn-lg" onclick="document_voted('bad');"><span class="glyphicon glyphicon-thumbs-down"></span>&nbsp; <?php echo $bad_count?></button>
+    </p>
+    <p>
+    <?php foreach($file_uploader_list as $rs) { ?>
+    <a href="<?php echo $GV['PATH']['FILES_R_PATH'].$rs['path']?>"><span class="label label-default"><?php echo $rs['filename']?><?php echo $rs['size_unit']?></span></a>&nbsp;
+    <?php } ?>
+    </p>
+  </div>
+  <div class="panel-footer">
+    <a class="btn btn-default" href="./<?php echo _param_get('act=&document_orl=&cpage=','?')?>" role="button">목록</a>
+    <a class="btn btn-default" href="./<?php echo _param_pick('mid=&act=dispDocumentInsert','?')?>" role="button">쓰기</a>
+    <?php if ($GRANT_MINE) { ?>
+    <script type="text/javascript">
+    function form_del() {
+      jQuery('#form').jaAction({ 
+        param : '<?php echo _param_pick("mid=&module=&act=procDocumentDelete")?>',
+        ask : 'del' ,
+        redirect : './<?php echo _param_pick('mid=&module=&forum_orl=','?')?>'
+      });
+    }
+    </script>
+    <a class="btn btn-info" href="./<?php echo _param_get('act=dispDocumentInsert','?')?>" role="button">수정</a>
+    <button type="button" class="btn btn-danger" onclick="form_del();">삭제</button>
+    <?php } ?>
+  </div>
 </div>
 
 <!-- 작성자 최근 글 -->
-<p>&nbsp;</p>
 <div class="panel panel-default">
   <div class="panel-heading"><strong><?php echo $nickname?></strong> 님 최근 게시글</div>
   <ul class="list-group">
