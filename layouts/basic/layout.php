@@ -7,7 +7,7 @@
     <ul class="nav nav-pills pull-right">
       <li><a href="./">Home</a></li>
       <?php if ($GRANT['GRANT_LOGIN']) { ?>
-      <li><a href="./?act=dispMemberLogin">Logout</a></li>
+      <li><a href="javascript:jQuery.member.logout();">Logout</a></li>
       <?php } else { ?>
       <li><a href="./?act=dispMemberLogin">Login</a></li>
       <?php } ?>
@@ -21,7 +21,7 @@
   <div style="margin-bottom:40px;"><?php echo $MODULE_CONTENT?></div>
 
   <div class="footer">
-    <p>&copy; Company 2014</p>
+    <p>&copy; 2014 <a href="http://syakuis.github.io/php-mei" target="_blank">PHP-MEI</a>.</p>
   </div>
 
 </div> <!-- /container -->

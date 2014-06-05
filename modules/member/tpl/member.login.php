@@ -24,29 +24,6 @@ jQuery(function() {
     setUserId();
   });
 
-  // Input Clear
-  var i_text = jQuery('.item>.i_label').next('.i_text');
-  jQuery('.item>.i_label').css('position','absolute');
-  i_text
-    .focus(function(){
-      jQuery(this).prev('.i_label').css('visibility','hidden');
-    })
-    .blur(function(){
-      if(jQuery(this).val() == '') {
-        jQuery(this).prev('.i_label').css('visibility','visible');
-      } else {
-        jQuery(this).prev('.i_label').css('visibility','hidden');
-      }
-    })
-    .change(function(){
-      if(jQuery(this).val() == ''){
-        jQuery(this).prev('.i_label').css('visibility','visible');
-      } else {
-        jQuery(this).prev('.i_label').css('visibility','hidden');
-      }
-    })
-    .blur();
-
 });
 
 // 계정 쿠키에 저장
@@ -76,7 +53,7 @@ function form_login() {
     param : 'module=member&act=procMemberLogin',
     loading : false,
     afterSend : function() {
-      location.href="<?php echo _param('ret_url')?>";
+      location.href="<?php echo $ret_url?>";
     }
   });
 }
@@ -84,28 +61,36 @@ function form_login() {
 //]]>
 </script>
 
-<div class="sub_column_content">
+<div style="width:40%;margin:0 auto;">
+<div class="panel panel-default">
+  <div class="panel-body">Sign In</div>
+  <div class="panel-footer">
 
-  <div id="login" class="g_login">
-    <form method="post" action="index.php" id="login_form" class="g_login">
-      <fieldset>
-        <legend>Login</legend>
-        <div class="item">
-          <label for="user_id" class="i_label">ID</label><input name="user_id" type="text" value="" id="user_id" class="i_text uid" />
+    <form role="form" method="post" action="?" id="login_form">
+      <div class="form-group">
+        <label for="user_id">ID</label>
+        <div class="input-group">
+          <input type="text" class="form-control" id="user_id" name="user_id" placeholder="아이디를 입력하세요." tabindex="1">
+          <span class="input-group-btn"><a class="btn btn-default" href="./<?php echo _param_get('act=dispMemberSignup','?')?>" role="button">회원가입</a></span>
         </div>
-        <div class="item">
-          <label for="password" class="i_label">PASSWORD</label><input name="password" type="password" value="" id="password" class="i_text upw" />
+      </div>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <div class="input-group">
+          <input type="password" class="form-control" id="password" name="password" placeholder="비밀번호를 입력하세요." tabindex="2">
+          <span class="input-group-btn"><a class="btn btn-default" href="./<?php echo _param_get('act=dispMemberSearch','?')?>" role="button">암호찾기</a></span>
         </div>
-        <p class="keeping"><input type="checkbox" value="Y" id="id_save" class="i_check" onclick="setUserId();" /><label for="id_save">아이디 기억</label></p>
-        <span class="btn_login"><input type="button" value="로그인" onclick="form_login();" /></span>
-        <ul class="help">
-        <li class="first"><a href="/?module=member&act=dispMemberSignup">회원가입</a></li>
-        <li><a href="/?module=member&act=dispMemberSearch">아이디/비밀번호 찾기</a></li>
-        </ul>
-      </fieldset>
+      </div>
+      <div class="checkbox">
+        <label>
+          <input type="checkbox" value="Y" id="id_save" onclick="setUserId();"> 아이디 기억
+        </label>
+      </div>
+      <div class="text-right"><button type="button" class="btn btn-success btn-lg" onclick="form_login();" tabindex="3">로그인</button></div>
     </form>
-  </div>
 
+  </div>
+</div>
 </div>
 
 <?php include_once "{$GV['_MEMBER_']['MODULE_PATH']}/tpl/member.footer.php"; ?>

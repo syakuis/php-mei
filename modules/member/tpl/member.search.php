@@ -36,98 +36,56 @@ function password_search() {
 
 </script>
 
-<div class="sub_column_content">
 
-  <form action="?" method="post" id="form_userid">
-  <fieldset>
-		<div class="form_table">
-    <div class="mtitle">아이디 찾기</div>
-		<table border="1" cellspacing="0">
-    <colgroup>
-    <col width="120"><col>
-    </colgroup>
-		<tbody>
-		<tr>
-		<th scope="row">이름</th>
-		<td>
-			<div class="item">
-      <input type="text" title="이름" class="i_text w100" id="user_name" name="user_name" value="" maxlength="10" />
-      </div>
-		</td>
-		</tr>
-		<tr>
-		<th scope="row">이메일</th>
-		<td>
-			<div class="item">
-      <input type="text" title="이메일" class="i_text w250" id="email" name="email" value="" />
-      </div>
-		</td>
-		</tr>
-		<tr>
-		<th scope="row">결과</th>
-		<td>
-			<div class="item">
-      <p class='i_dsc' id="userid_search"></p>
-      </div>
-		</td>
-		</tr>
-		</tbody>
-		</table>
-	</div>
-	</fieldset>
-  <div>
-    <span class="button medium"><input type="button" onclick="user_id_search();" value="아이디 찾기" /></span>
-  </div>
-  </form>
+<div style="width:40%;margin:0 auto;">
 
-  <form action="?" method="post" id="form_password">
-  <fieldset>
-		<div class="form_table">
-    <div class="mtitle">비밀번호 찾기</div>
-		<table border="1" cellspacing="0">
-    <colgroup>
-    <col width="120"><col>
-    </colgroup>
-		<tbody>
-		<tr>
-		<th scope="row">이름</th>
-		<td>
-			<div class="item">
-      <input type="text" title="이름" class="i_text w100" id="user_name" name="user_name" value="" maxlength="10" />
+<div class="panel panel-default">
+  <div class="panel-body">계정 찾기</div>
+  <div class="panel-footer">
+
+    <form role="form" method="post" action="?" id="form_userid">
+      <div class="form-group">
+        <label for="user_name">이름</label>
+        <input type="text" class="form-control" id="user_name" name="user_name" placeholder="이름을 입력하세요.">
       </div>
-		</td>
-		</tr>
-		<tr>
-		<th scope="row">아이디</th>
-		<td>
-			<div class="item">
-      <input type="text" title="아이디" class="i_text w100" id="user_id" name="user_id" value="" maxlength="15" />
-		</td>
-		</tr>
-		<tr>
-		<th scope="row">이메일</th>
-		<td>
-			<div class="item">
-      <input type="text" title="이메일" class="i_text w250" id="email" name="email" value="" />
+      <div class="form-group">
+        <label for="email">이메일</label>
+        <input type="text" class="form-control" id="email" name="email" placeholder="이메일을 입력하세요.">
       </div>
-		</td>
-		</tr>
-		<tr>
-		<th scope="row">결과</th>
-		<td>
-			<div class="item">
-      <p class='i_dsc' id="password_search"></p>
+      <div class="form-group text-right"><button type="button" class="btn btn-success" onclick="user_id_search();" tabindex="3">아이디찾기</button></div>
+      <div class="form-group">
+        <div id="userid_search" class="alert alert-success"></div>
       </div>
-		</td>
-		</tr>
-		</tbody>
-		</table>
-	</div>
-	</fieldset>
-  <div>
-    <span class="button medium"><input type="button" onclick="password_search();" value="비밀번호 찾기" /></span>
+    </form>
+
   </div>
-  </form>
+</div>
+
+<div class="panel panel-default">
+  <div class="panel-body">암호 찾기</div>
+  <div class="panel-footer">
+
+    <form role="form" method="post" action="?" id="form_password">
+      <div class="form-group">
+        <label for="user_name">이름</label>
+        <input type="text" class="form-control" id="user_name" name="user_name" placeholder="이름을 입력하세요.">
+      </div>
+      <div class="form-group">
+        <label for="user_id">아이디</label>
+        <input type="text" class="form-control" id="user_id" name="user_id" placeholder="아이디를 입력하세요.">
+      </div>
+      <div class="form-group">
+        <label for="email">이메일</label>
+        <input type="text" class="form-control" id="email" name="email" placeholder="이메일을 입력하세요.">
+      </div>
+      <div class="form-group text-right"><button type="button" class="btn btn-success" onclick="password_search();" tabindex="3">암호찾기</button></div>
+      <div class="form-group">
+        <div id="password_search" class="alert alert-success"></div>
+      </div>
+    </form>
+
+  </div>
+</div>
 
 </div>
 

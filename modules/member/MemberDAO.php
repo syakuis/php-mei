@@ -50,7 +50,7 @@ class MemberDAO {
   }
 
   // 중복 체크
-  function isUniqueUserId($user_id,$member_orl = NULL) {
+  function isUniqueUserId($user_id, $member_orl = NULL) {
     $__Db = Db::getInstance();
     $__Db->query = "SELECT IFNULL( COUNT(member_orl) , 0) AS count FROM member ";
     $__Db->query .= "WHERE user_id = '{$user_id}' ";

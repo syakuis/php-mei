@@ -70,7 +70,7 @@ jQuery(function() {
   <hr>
 
   <footer>
-    <p>&copy; Company 2014</p>
+    <p>&copy; 2014 <a href="http://syakuis.github.io/php-mei" target="_blank">PHP-MEI</a>.</p>
   </footer>
 
 </div><!--/.container-->

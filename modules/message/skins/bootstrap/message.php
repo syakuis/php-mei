@@ -7,7 +7,7 @@
   <p class="tr">
     <button type="button" class="btn btn-default" onclick="history.back();">돌아가기</button>
     <a class="btn btn-success" href="/<?php echo _RELATIVE_PATH_?>" role="button">홈페이지</a>
-    <button type="button" class="btn btn-primary" onclick="jQuery.member.login();">로그인</button>
+    <a class="btn btn-primary" href="./<?php echo _param_get('act=dispMemberLogin','?');?>" role="button">로그인</a>
   </p>
   </div>
 </div>

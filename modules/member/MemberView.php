@@ -12,7 +12,14 @@ class MemberView {
     $ModuleContext = ModuleContext::getInstance();
     $Context = Context::getInstance();
 
-    $ret_url = _param('ret_url',_MEI_R_PATH_);
+    $ret_url = _param('ret_url');
+    $http_referer = $_SERVER['HTTP_REFERER'];
+    if (strpos($http_referer,'Member') === false && empty($ret_url) ) {
+      $ret_url = $http_referer;
+    }
+
+    $ret_url = _empty($ret_url,'./');
+
     $ModuleContext->put('ret_url',$ret_url);
 
     // 레이아웃에 로그인 페이지가 있는 경우 해당 로그인 페이지 활성화
