@@ -28,37 +28,58 @@
     <div id="content-wrapper">
       <div class="inner clearfix">
         <section id="main-content">
-          <h3>
-<a name="welcome-to-github-pages" class="anchor" href="#welcome-to-github-pages"><span class="octicon octicon-link"></span></a>Welcome to GitHub Pages.</h3>
+          <h1>
+<a name="site-building-framework-mei" class="anchor" href="#site-building-framework-mei"><span class="octicon octicon-link"></span></a>Site Building Framework MEI</h1>
 
-<p>This automatic page generator is the easiest way to create beautiful pages for all of your projects. Author your page content here using GitHub Flavored Markdown, select a template crafted by a designer, and publish. After your page is generated, you can check out the new branch:</p>
+<h2>
+<a name="%EC%86%8C%EA%B0%9C" class="anchor" href="#%EC%86%8C%EA%B0%9C"><span class="octicon octicon-link"></span></a>소개</h2>
 
-<pre><code>$ cd your_repo_root/repo_name
-$ git fetch origin
-$ git checkout gh-pages
-</code></pre>
+<ul>
+<li>개발 언어 : PHP 5.3+ / MySQL 5.0+</li>
+<li>서비스 환경 : 크로스 플랫폼, Apache / IIS / Nginx / 그외 PHP 대응하는 웹서버 / UTF-8 / 크로스브라우징 지원</li>
+<li>공식 카페 : <a href="http://cafe.naver.com/phpmei">http://cafe.naver.com/phpmei</a>
+</li>
+<li>설치하기 : </li>
+<li>메뉴얼 : </li>
+</ul><p>MEI (Modularize. Extension. Interaction.) 란? 웹프로그램을 모듈화하여 여러 모듈들이 서로 연결되어 하나의 플랫폼이 완성되는 것을 도와주는 사이트 빌딩 프레임워크입니다. 또한 레이아웃과 스킨을 자유롭게 변경할 수 있어 다양한 디자인과 UI를 표현할 수 있어 어떤 모듈의 구성에 따라 웹사이트가 되고 쇼핑몰 혹은 블로그, 카페 사이트로 시스템 구성을 할 수 있습니다.</p>
 
-<p>If you're using the GitHub for Mac, simply sync your repository and you'll see the new branch.</p>
+<ul>
+<li>Modularize : 한번 개발된 프로그램은 재사용이 용의하게 모듈화 합니다.</li>
+<li>Extension : 모듈은 세분화되어 특정 프로그램에 구애받지 않아 확장성에 용의합니다.</li>
+<li>Interaction : 모듈 간의 상호작용이 효율적이며 손쉽게 필요한 모듈을 호출할 수 있습니다.</li>
+</ul><p>MEI 에는 다음과 같은 기능을 제공합니다.</p>
 
-<h3>
-<a name="designer-templates" class="anchor" href="#designer-templates"><span class="octicon octicon-link"></span></a>Designer Templates</h3>
+<ul>
+<li>MySQL 5.0 이상 데이터베이스 커넥션을 제공합니다.</li>
+<li>MVC 모델 패턴을 지원하며, 자원을 낭비하는 불필요한 템플릿엔진을 사용하지 않고 PHP 그대로를 사용합니다.</li>
+<li>프로그램들이 각각 모듈화되어 있어, 필요에 따라 조립하는 방식으로 다양한 결과를 만들어낼 수 있습니다.</li>
+<li>스킨과 레이아웃을 기능을 제공하여 원하는 UI와 디자인으로 구성할 수 있습니다.</li>
+<li>모듈이 실행되기 전과 후를 처리하는 인터셉터를 지원합니다.</li>
+<li>개발된 모듈은 모바일용 스킨과 레아웃만 추가하면 손쉽게 모바일 환경도 구성할 수 있습니다.</li>
+<li>모듈마다 설정정보를 가지므로 유동적인 모듈의 기능을 가질 수 있습니다.</li>
+</ul><h2>
+<a name="%EC%84%A4%EC%B9%98%ED%95%98%EA%B8%B0" class="anchor" href="#%EC%84%A4%EC%B9%98%ED%95%98%EA%B8%B0"><span class="octicon octicon-link"></span></a>설치하기</h2>
 
-<p>We've crafted some handsome templates for you to use. Go ahead and continue to layouts to browse through them. You can easily go back to edit your page before publishing. After publishing your page, you can revisit the page generator and switch to another theme. Your Page content will be preserved if it remained markdown format.</p>
+<ol>
+<li>MEI 설치하기 위해서는 PHP 5.3 이상 과 PHP 대응하는 웹서버(Apache , IIS, Nigx) 그리고 MySQL 5.0 이상이 필요합니다.</li>
+<li>MEI 를 내려받아 웹서비스에 압축을 풀어주세요.</li>
+<li>브라우져를 통해 웹서비스에 접속하세요.</li>
+<li>인스톨을 진행하시면 됩니다.</li>
+</ol><h2>
+<a name="built-in-open-source" class="anchor" href="#built-in-open-source"><span class="octicon octicon-link"></span></a>Built-in Open Source</h2>
 
-<h3>
-<a name="rather-drive-stick" class="anchor" href="#rather-drive-stick"><span class="octicon octicon-link"></span></a>Rather Drive Stick?</h3>
+<p>사용된 오픈소스는 아래와 같습니다.</p>
 
-<p>If you prefer to not use the automatic generator, push a branch named <code>gh-pages</code> to your repository to create a page manually. In addition to supporting regular HTML content, GitHub Pages support Jekyll, a simple, blog aware static site generator written by our own Tom Preston-Werner. Jekyll makes it easy to create site-wide headers and footers without having to copy them across every page. It also offers intelligent blog support and other advanced templating features.</p>
-
-<h3>
-<a name="authors-and-contributors" class="anchor" href="#authors-and-contributors"><span class="octicon octicon-link"></span></a>Authors and Contributors</h3>
-
-<p>You can <a href="https://github.com/blog/821" class="user-mention">@mention</a> a GitHub username to generate a link to their profile. The resulting <code>&lt;a&gt;</code> element will link to the contributor's GitHub Profile. For example: In 2007, Chris Wanstrath (<a href="https://github.com/defunkt" class="user-mention">@defunkt</a>), PJ Hyett (<a href="https://github.com/pjhyett" class="user-mention">@pjhyett</a>), and Tom Preston-Werner (<a href="https://github.com/mojombo" class="user-mention">@mojombo</a>) founded GitHub.</p>
-
-<h3>
-<a name="support-or-contact" class="anchor" href="#support-or-contact"><span class="octicon octicon-link"></span></a>Support or Contact</h3>
-
-<p>Having trouble with Pages? Check out the documentation at <a href="http://help.github.com/pages">http://help.github.com/pages</a> or contact <a href="mailto:support@github.com">support@github.com</a> and we’ll help you sort it out.</p>
+<ul>
+<li><p>jQuery</p></li>
+<li><p>jQuery Action</p></li>
+<li><p>jQuery-ui</p></li>
+<li>jQuery-mobile</li>
+<li><p>Bootstrap</p></li>
+<li><p>SWFUpload</p></li>
+<li>SmartEditor</li>
+<li>CKEditor</li>
+</ul>
         </section>
 
         <aside id="sidebar">
