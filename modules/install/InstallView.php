@@ -10,6 +10,8 @@ class InstallView {
 
   function dispInstallLicense() {
     $ModuleContext = ModuleContext::getInstance();
+    $license = file_get_contents(_MEI_PATH_ . '/LICENSE');
+    $ModuleContext->put('license',$license);
     return $ModuleContext;
   }
 
