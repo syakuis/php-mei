@@ -283,6 +283,8 @@ class ModuleHandler {
   // 폴더 목록
   public static function getDir($path, $filter = NULL) {
     $list = array();
+    if (!is_dir($path)) return $list;
+
     $dirs = dir($path);
     $dir_path = $dirs->path;
     while ($dir = $dirs->read()) {

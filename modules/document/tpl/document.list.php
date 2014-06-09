@@ -101,28 +101,25 @@ $ipaddress = $rs['ipaddress'];
 
 </div>
 
-<div class="clearfix">
-<div class="pull-left">
-<form id="form_search" method="get" action="?">
-<div class="input-group">
-  <span class="input-group-addon">
-    <select id="sch_type" name="sch_type" style="font-size:11px;">
-    <option value="">검색</option>
-    <option value="subject">제목</option>
-    <option value="content_text">내용</option>
-    <option value="nickname">닉네임</option>
-    <option value="user_id">아이디</option>
-    </select>
-  </span>
-  <input type="text" class="form-control" id="sch_value" name="sch_value" value="<?php echo _param('sch_value')?>" />
-  <span class="input-group-btn"><button class="btn btn-default" type="submit">검색</button></span>
-</div>
-</form>
-</div>
-
-<div class="pull-right">
-  <a class="btn btn-default" href="./<?php echo _param_pick('mid=&act=dispDocumentInsert','?')?>" role="button">쓰기</a>
-</div>
+<div class="row">
+  <div class="col-xs-4">
+  <form id="form_search" method="get" action="?">
+  <div class="input-group">
+    <span class="input-group-addon">
+      <select id="sch_type" name="sch_type" style="font-size:11px;">
+      <option value="">검색</option>
+      <option value="subject">제목</option>
+      <option value="content_text">내용</option>
+      <option value="nickname">닉네임</option>
+      <option value="user_id">아이디</option>
+      </select>
+    </span>
+    <input type="text" class="form-control" id="sch_value" name="sch_value" value="<?php echo _param('sch_value')?>" />
+    <span class="input-group-btn"><button class="btn btn-default" type="submit">검색</button></span>
+  </div>
+  </form>
+  </div>
+  <div class="col-xs-8 text-right"><a class="btn btn-default" href="./<?php echo _param_pick('mid=&act=dispDocumentInsert','?')?>" role="button">쓰기</a></div>
 </div>
 
 <script type="text/javascript">
