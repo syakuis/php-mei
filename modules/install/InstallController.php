@@ -227,7 +227,7 @@ class InstallController {
       $args['user_id'] = $user_id;
       MemberDAO::insert($args);
     } else {
-      MemberDAO::update($args);
+      MemberDAO::update($args,$rs['member_orl']);
     }
 
     return $ModuleContext;
