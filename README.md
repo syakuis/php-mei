@@ -6,8 +6,8 @@ Site Building Framework MEI
 * 개발 언어 : PHP 5.3+ / MySQL 5.0+
 * 서비스 환경 : 크로스 플랫폼, Apache / IIS / Nginx / 그외 PHP 대응하는 웹서버 / UTF-8 / 크로스브라우징 지원
 * 공식 카페 : http://cafe.naver.com/phpmei
-* 설치하기 : 
-* 메뉴얼 : 
+* 설치하기 : http://cafe.naver.com/phpmei/4
+* 메뉴얼 : 공식카페에 업데이트 됩니다.
 
 MEI (Modularize. Extension. Interaction.) 란? 웹프로그램을 모듈화하여 여러 모듈들이 서로 연결되어 하나의 플랫폼이 완성되는 것을 도와주는 사이트 빌딩 프레임워크입니다. 또한 레이아웃과 스킨을 자유롭게 변경할 수 있어 다양한 디자인과 UI를 표현할 수 있어 어떤 모듈의 구성에 따라 웹사이트가 되고 쇼핑몰 혹은 블로그, 카페 사이트로 시스템 구성을 할 수 있습니다.
 
