@@ -5,6 +5,7 @@ Site Building Framework MEI
 
 * 개발 언어 : PHP 5.3+ / MySQL 5.0+
 * 서비스 환경 : 크로스 플랫폼, Apache / IIS / Nginx / 그외 PHP 대응하는 웹서버 / UTF-8 / 크로스브라우징 지원
+* Github : https://github.com/syakuis/php-mei
 * 공식 카페 : http://cafe.naver.com/phpmei
 * 설치하기 : http://cafe.naver.com/phpmei/4
 * 메뉴얼 : 공식카페에 업데이트 됩니다.
