@@ -204,7 +204,7 @@ class InstallController {
   }
 
   // 관리자 등록
-  function procInstallAdminInsert() {
+  function procInstallUserAdminInsert() {
     $ModuleContext = ModuleContext::getInstance();
     $__Db = Db::getInstance();
 

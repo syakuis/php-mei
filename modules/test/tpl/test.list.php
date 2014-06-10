@@ -1,9 +1,3 @@
-<br/><br/><br/><br/>
-<?php
-echo $test;
-var_dump($ModuleContext);
-?>
-<br/><br/><br/><br/>
-<?php
-echo $content;
-?>
+<?php echo $comment_content?>
+<br/>
+<?php echo $comment_content2?>

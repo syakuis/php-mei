@@ -495,4 +495,9 @@ function cut_str($string, $cut_size = 0, $tail = '...')
 
 	return $output;
 }
+
+function getmicrotime() {
+  list($usec, $sec) = explode(" ", microtime()); 
+  return ((float)$usec + (float)$sec); 
+}
 ?>

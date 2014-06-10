@@ -168,10 +168,11 @@ class ModuleHandler {
   private static function classInstance($class, $method) {
     if ( class_exists($class) ) {
       // 클래스 선언
-      $instance = new $class();
-      if( is_object($instance) ) {
-        if ( method_exists($instance,$method) ) {
-          return $instance->{$method}();
+      if ( !is_a(${$class}, $class) ) ${$class} = new $class();
+
+      if( is_object(${$class}) ) {
+        if ( method_exists(${$class},$method) ) {
+          return ${$class}->{$method}();
         } else {
           throw new Exception("{$method} Not found method.");
         }

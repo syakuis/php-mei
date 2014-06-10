@@ -48,12 +48,12 @@
       <result>xml</result>
     </action>
 
-   <action name="dispInstallAdminInsert" class="InstallView" method="dispInstallAdminInsert">
+   <action name="dispInstallUserAdminInsert" class="InstallView" method="dispInstallUserAdminInsert">
       <permission>everyone</permission>
       <type>view</type>
-      <template>install.admin.insert.php</template>
+      <template>install.user.admin.insert.php</template>
     </action>
-    <action name="procInstallAdminInsert" class="InstallController" method="procInstallAdminInsert">
+    <action name="procInstallUserAdminInsert" class="InstallController" method="procInstallUserAdminInsert">
       <permission>everyone</permission>
       <type>controller</type>
       <result>xml</result>

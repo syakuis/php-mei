@@ -82,7 +82,7 @@ _goto();
 
 
 <p class="text-right">
-<a class="btn btn-success" href="./?module=install&act=dispInstallAdminInsert" role="button"  id="btn_next"><span class="glyphicon glyphicon-share-alt"></span> 다음</a>
+<a class="btn btn-success" href="./?module=install&act=dispInstallUserAdminInsert" role="button"  id="btn_next"><span class="glyphicon glyphicon-share-alt"></span> 다음</a>
 <button type="button" class="btn btn-success" onclick="_reload();" id="btn_reload" style="display:none;"><span class="glyphicon glyphicon-share-alt"></span> 새로고침</button>
 </p>
 

@@ -12,13 +12,20 @@ class TestView {
   function dispTestList() {
     $Context = Context::getInstance();
     $ModuleContext = ModuleContext::getInstance();
-    $ModuleContext->put('test','dispTestList');
+/*
+        $ValueStack = ValueStack::getInstance();
+        $ValueStack->put('comment', 'module_orl', 9);
+        $ValueStack->put('comment', 'target_orl', 5);
 
-    $oModuleContext = ModuleHandler::getModule('module','test','dispTestView');
-    $__DisplayHandler = new DisplayHandler($oModuleContext);
-    $content = $__DisplayHandler->getContent();
-    $ModuleContext->put('content',$content);
+        $comment_content = ModuleHandler::getModuleContent('module', 'comment', 'dispCommentList');
+        $ModuleContext->put('comment_content',$comment_content);
 
+        $ValueStack->put('comment', 'module_orl', 9);
+        $ValueStack->put('comment', 'target_orl', 4);
+
+        $comment_content = ModuleHandler::getModuleContent('module', 'comment', 'dispCommentList');
+        $ModuleContext->put('comment_content2',$comment_content);
+*/
     return $ModuleContext;
   }
 

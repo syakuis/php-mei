@@ -31,7 +31,7 @@ class InstallView {
     return $ModuleContext;
   }
 
-  function dispInstallAdminInsert() {
+  function dispInstallUserAdminInsert() {
     $ModuleContext = ModuleContext::getInstance();
     return $ModuleContext;
   }

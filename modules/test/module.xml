@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<module>
+<module name="test">
+  <interceptor module="test" class="TestInterceptor" method="before" event="before" />
+
    <action name="dispTestList" class="TestView" method="dispTestList" index="true">
+      <interceptor module="test" class="TestInterceptor" method="before" event="before" />
+      <interceptor module="test" class="TestInterceptor" method="after" event="after" />
       <permission>everyone</permission>
       <type>view</type>
       <result>html</result>
