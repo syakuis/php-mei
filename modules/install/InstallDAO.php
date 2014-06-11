@@ -55,7 +55,6 @@ class InstallDAO {
     $__Db = Db::getInstance();
 		$__Db->query = "UPDATE install SET
       status = '{$args['status']}' 
-    , reg_datetime = '{$args['reg_datetime']}' 
     , update_datetime = '{$args['update_datetime']}'
     WHERE module = '{$set['module']}' LIMIT 1";
 		$__Db->update();
@@ -68,6 +67,12 @@ class InstallDAO {
       'value' => $values 
     );
     $__Db->queryForInsert('install',$doc);
+  }
+
+  function del($install_orl) {
+    $__Db = Db::getInstance();
+    $__Db->query = "DELETE FROM install WHERE install_orl = {$install_orl} LIMIT 1 ";
+    $__Db->del();
   }
 
 }

@@ -43,6 +43,39 @@ class InstallView {
     return $ModuleContext;
   }
 
+  function dispInstallAdminList() {
+    $ModuleContext = ModuleContext::getInstance();
+    $Context = Context::getInstance();
+    $GV = $Context->getGV();
+
+    // 인스톨 데이터 조회, 모듈 폴더 호출
+    $list = InstallDAO::select();
+    $modules = ModuleHandler::getModuleNames();
+    $result = array();
+
+    foreach($modules as $module) {
+      $item = array();
+      foreach($list as $rs) {
+        if ($module == $rs['module']) {
+          $item = $rs;
+          break;
+        }
+      }
+
+      $brief = $GV[ModuleHandler::getGVName($module)]['BRIEF'];
+      if ( !empty($item) ) {
+        $item['brief'] = $brief;
+        array_push($result, $item);
+      } else {
+        array_push($result, array('module' => $module, 'brief' => $brief));
+      }
+
+    }
+
+    $ModuleContext->put('list',$result);
+    return $ModuleContext;
+  }
+
 }
 
 ?>

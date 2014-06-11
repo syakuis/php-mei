@@ -2,15 +2,15 @@
 
 <module name="install">
 
-  <interceptor module="install" class="InstallInterceptor" method="isInstalled" event="before" />
-
    <action name="dispInstallLicense" class="InstallView" method="dispInstallLicense" index="true">
+      <interceptor module="install" class="InstallInterceptor" method="isInstalled" event="before" />
       <permission>everyone</permission>
       <type>view</type>
       <template>install.license.php</template>
     </action>
 
    <action name="dispInstallPrepare" class="InstallView" method="dispInstallPrepare">
+      <interceptor module="install" class="InstallInterceptor" method="isInstalled" event="before" />
       <permission>everyone</permission>
       <type>view</type>
       <template>install.prepare.php</template>
@@ -22,6 +22,7 @@
     </action>
 
    <action name="dispInstallDbSetting" class="InstallView" method="dispInstallDbSetting">
+      <interceptor module="install" class="InstallInterceptor" method="isInstalled" event="before" />
       <permission>everyone</permission>
       <type>view</type>
       <template>install.db.setting.php</template>
@@ -33,36 +34,58 @@
     </action>
 
    <action name="dispInstallStatus" class="InstallView" method="dispInstallStatus">
+      <interceptor module="install" class="InstallInterceptor" method="isInstalled" event="before" />
       <permission>everyone</permission>
       <type>view</type>
       <template>install.status.php</template>
     </action>
    <action name="procInstallCreateTable" class="InstallController" method="procInstallCreateTable">
+      <interceptor module="install" class="InstallInterceptor" method="isInstalled" event="before" />
       <permission>everyone</permission>
       <type>controller</type>
       <result>xml</result>
     </action>
     <action name="procInstallModule" class="InstallController" method="procInstallModule">
+      <interceptor module="install" class="InstallInterceptor" method="isInstalled" event="before" />
       <permission>everyone</permission>
       <type>controller</type>
       <result>xml</result>
     </action>
 
    <action name="dispInstallUserAdminInsert" class="InstallView" method="dispInstallUserAdminInsert">
+      <interceptor module="install" class="InstallInterceptor" method="isInstalled" event="before" />
       <permission>everyone</permission>
       <type>view</type>
       <template>install.user.admin.insert.php</template>
     </action>
     <action name="procInstallUserAdminInsert" class="InstallController" method="procInstallUserAdminInsert">
+      <interceptor module="install" class="InstallInterceptor" method="isInstalled" event="before" />
       <permission>everyone</permission>
       <type>controller</type>
       <result>xml</result>
     </action>
 
    <action name="dispInstallSuccess" class="InstallView" method="dispInstallSuccess">
+      <interceptor module="install" class="InstallInterceptor" method="isInstalled" event="before" />
       <permission>everyone</permission>
       <type>view</type>
       <template>install.success.php</template>
+    </action>
+
+    <action name="dispInstallAdminList" target="admin" class="InstallView" method="dispInstallAdminList">
+      <permission>manager</permission>
+      <type>view</type>
+      <template>admin.install.list.php</template>
+    </action>
+    <action name="procInstallAdminInsert" target="admin" class="InstallController" method="procInstallAdminInsert">
+      <permission>manager</permission>
+      <type>controller</type>
+      <result>xml</result>
+    </action>
+    <action name="procInstallAdminDelete" target="admin" class="InstallController" method="procInstallAdminDelete">
+      <permission>manager</permission>
+      <type>controller</type>
+      <result>xml</result>
     </action>
 
 </module>

@@ -206,6 +206,7 @@ class ModuleHandler {
 
       foreach(self::getModuleNames() as $v) {
         $ACT_XML = self::actionXml($v);
+        if ($ACT_XML == NULL) continue;
         $ACT_CONFIG = self::actionConfig($ACT_XML->action, $act);
         if ($ACT_CONFIG != NULL) {
           $result['ACT_XML'] = $ACT_XML;
@@ -216,6 +217,7 @@ class ModuleHandler {
 
     } else {
       $ACT_XML = self::actionXml($module);
+      if ($ACT_XML == NULL) throw new Exception("[actionConfig] {$path} :: Not found file.");
       $ACT_CONFIG = self::actionConfig($ACT_XML->action, $act);
       $result['ACT_XML'] = $ACT_XML;
       $result['ACT_CONFIG'] = $ACT_CONFIG;
@@ -224,17 +226,31 @@ class ModuleHandler {
     return $result;
   }
 
-  // module.xml 읽기
+  /**
+  * module.xml 읽어서 객체로 반환함.
+  *
+  * @param string 모듈명
+  * @return object | NULL
+  */
   public static function actionXml($module) {
     global $GV;
 
     if ( empty($module) ) throw new Exception("[actionConfig] NULL Point Exception.");
     $path = $GV['PATH']['MODULES_PATH'] . "/{$module}/module.xml";
-    if ( !file_exists($path) ) throw new Exception("[actionConfig] {$path} :: Not found file.");
+    if ( !file_exists($path) ) return NULL;
     return simplexml_load_file($path);
   }
+
+  /**
+  * module.xml 객체의 action 노드를 찾아서 반환함.
+  *
+  * @param object module.xml action 노드 객체
+  * @param string 찾을 action 명, NULL인 경우 index 노드를 찾음
+  * @return object | NULL
+  */
   public static function actionConfig($actions, $act = NULL) {
     $index = NULL;
+    if ($actions == NULL) return $index;
 
     foreach ($actions as $obj) {
       if ($obj['index'] == TRUE && $act == NULL) $index = $obj;

@@ -2,6 +2,7 @@
 <?php
 $GV['_MODULE_']['MODULE'] = 'module';
 $GV['_MODULE_']['MODULE_TITLE'] = '모듈';
+$GV['_MODULE_']['BRIEF'] = '모듈을 관리합니다.';
 $GV['_MODULE_']['SINGLE'] = false;
 $GV['_MODULE_']['MODULE_PATH'] = $GV['PATH']['MODULES_PATH'] . '/module';
 $GV['_MODULE_']['MODULE_R_PATH'] = $GV['PATH']['MODULES_R_PATH'] . '/module';

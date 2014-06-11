@@ -360,8 +360,9 @@
   * @param string datetime 모든 문자를 제외한 숫자만 6 혹은 12자리여야 함.
   * @return string
   */
-  function _date($format = NULL,$date = NULL) {
-    if ( is_null($date) ) $date = date("YmdHis");
+  function _date($format = NULL,$date = 1) {
+    if ( empty($date) ) return NULL;
+    if ( $date == 1 ) $date = date("YmdHis");
     if ( is_null($format) ) return $date;
 
     $date = preg_replace('/[^0-9]+/','',$date);

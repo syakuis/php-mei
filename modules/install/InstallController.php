@@ -124,8 +124,6 @@ class InstallController {
   // 모듈 설치
   function procInstallModule() {
     $ModuleContext = ModuleContext::getInstance();
-    $Context = Context::getInstance();
-    $GV = $Context->getGV();
     $__Db = Db::getInstance();
 
     try {
@@ -135,63 +133,13 @@ class InstallController {
 
       $modules = ModuleHandler::getModuleNames();
       foreach($modules as $module) {
-        $success = false;
-
-        // 설치여부 체크
-        $cond = array( 'module' => $module );
-        $install_rs = InstallDAO::selectOne($cond);
-
-        if ($install_rs && $install_rs['status'] == 'Y') continue;
-
-        // 설치 모듈 검색
-        $module_gv = $GV[ModuleHandler::getGVName($module)];
-        $module_path = $module_gv['MODULE_PATH'] . "/{$module}.install.php";
-        if ( file_exists($module_path) ) require_once $module_path;
-
-        // 모듈 설치 호출
-        $module_class = $module . 'Install';
-        if ( class_exists($module_class) ) {
-          // 클래스 선언
-          $func = create_function('', "return new {$module_class}();");
-          $cls = $func();
-          if( is_object($cls) ) {
-            if ( method_exists($cls,'moduleInstall') ) {
-              $success = $cls->moduleInstall();
-            }
-          }
-        } else {
-          array_push($other_install,$module);
-        }
-
-        if ($success) {
-          $args = array();
-          $args['module'] = $module;
-          $args['status'] = 'Y';
-          $args['reg_datetime'] = _date();
-          InstallObject::saveInstall($args);
-        }
-
+        $success = InstallObject::moduleInstall($module);
+        if (!$success) array_push($other_install, $module); // 설치하지 못한 경우 배열로 담음
       } // 모듈 설치 끝
 
       // 설치 모듈이 없는 경우 자동 설치
       foreach($other_install as $module) {
-        $name = ModuleHandler::getGVName($module);
-
-        // 모듈 설치 ( 싱글인 경우)
-        if ($GV[$name]['SINGLE'] == true) {
-          $args = array();
-          $args['module'] = $GV[$name]['MODULE'];
-          $args['module_title'] = $GV[$name]['TITLE'];
-          $args['browser_title'] = $GV[$name]['TITLE'];
-          $args['locking'] = 'Y';
-          ModuleObject::insertInstall($GV[$name], $args, $GV[$name]['OPTIONS']);
-        }
-
-        $args = array();
-        $args['module'] = $module;
-        $args['status'] = 'Y';
-        $args['reg_datetime'] = _date();
-        InstallObject::saveInstall($args);
+        InstallObject::moduleAutoInstall($module);
       }
 
       $__Db->commit();
@@ -229,6 +177,36 @@ class InstallController {
     } else {
       MemberDAO::update($args,$rs['member_orl']);
     }
+
+    return $ModuleContext;
+  }
+
+  function procInstallAdminInsert() {
+    $ModuleContext = ModuleContext::getInstance();
+    $__Db = Db::getInstance();
+    $install_module = _post('install_module');
+
+    try {
+      $__Db->begin();
+      $success = InstallObject::moduleInstall($install_module);
+      if (!$success) InstallObject::moduleAutoInstall($install_module);
+
+      $__Db->commit();
+    } catch(Exception $e) {
+      $__Db->rollback();
+      throw new Exception($e);
+    }
+
+    return $ModuleContext;
+  }
+
+  function procInstallAdminDelete() {
+    $ModuleContext = ModuleContext::getInstance();
+    $__Db = Db::getInstance();
+    $install_orl = _post('install_orl');
+    
+    if ( empty($install_orl) ) return $ModuleContext->resultError('올바른 정보가 아닙니다.');
+    InstallDAO::del($install_orl);
 
     return $ModuleContext;
   }

@@ -11,6 +11,7 @@ jQuery(function() {
 
   jQuery('#admin_sidebar_menu a').bootstrap('active',{
     data : [
+    { compare : ['InstallAdmin'] },
     { compare : ['MessageAdmin'] },
     { compare : ['LayoutAdmin'] },
     { compare : ['PageAdmin'] },
@@ -58,6 +59,7 @@ jQuery(function() {
 
     <div class="col-xs-6 col-sm-3 sidebar-offcanvas" role="navigation">
       <div class="list-group" id="admin_sidebar_menu">
+        <a href="./?module=admin&act=dispInstallAdminList" class="list-group-item">모듈설치</a>
         <a href="./?module=admin&act=dispMessageAdminConfigInsert" class="list-group-item">메세지</a>
         <a href="./?module=admin&act=dispLayoutAdminList" class="list-group-item">레이아웃</a>
         <a href="./?module=admin&act=dispPageAdminConfigList" class="list-group-item">페이지</a>

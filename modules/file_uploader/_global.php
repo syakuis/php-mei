@@ -2,6 +2,7 @@
 <?php
 $GV['_FILE_UPLOADER_']['MODULE'] = 'file_uploader';
 $GV['_FILE_UPLOADER_']['TITLE'] = '파일 업로드';
+$GV['_FILE_UPLOADER_']['BRIEF'] = '파일 업로드 모듈입니다.';
 $GV['_FILE_UPLOADER_']['SINGLE'] = true;
 
 $GV['_FILE_UPLOADER_']['MODULE_PATH'] = $GV['PATH']['MODULES_PATH'] . '/' . $GV['_FILE_UPLOADER_']['MODULE'];

@@ -2,7 +2,8 @@
 <?php
 $GV['_INSTALL_']['MODULE'] = 'install';
 $GV['_INSTALL_']['TITLE'] = '설치';
-$GV['_INSTALL_']['BRIEF'] = '';
+$GV['_INSTALL_']['BRIEF'] = '모듈을 설치고 관리합니다.';
+$GV['_INSTALL_']['VERSION'] = '0.1.0';
 $GV['_INSTALL_']['SINGLE'] = true;
 
 $GV['_INSTALL_']['MODULE_PATH'] = $GV['PATH']['MODULES_PATH'] . '/' . $GV['_INSTALL_']['MODULE'];

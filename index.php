@@ -42,13 +42,13 @@ try {
 
   ModuleHandler::getModuleInstance($kind, ${$kind}, $act);
 
+  // 출력
+  $__DisplayHandler = new DisplayHandler($ModuleContext);
+  echo $__DisplayHandler->getContent(FALSE, FALSE);
+  $Context->close();
+
 } catch(Exception $e) {
-  $ModuleContext->setError(TRUE);
-  $ModuleContext->setMessage($e->getMessage());
+  echo $e->getMessage();
 }
 
-// 출력
-$__DisplayHandler = new DisplayHandler($ModuleContext);
-echo $__DisplayHandler->getContent(FALSE, FALSE);
-$Context->close();
 ?>

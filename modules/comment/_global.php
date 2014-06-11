@@ -2,6 +2,7 @@
 <?php
 $GV['_COMMENT_']['MODULE'] = 'comment'; // 모듈 명
 $GV['_COMMENT_']['TITLE'] = '댓글';
+$GV['_COMMENT_']['BRIEF'] = '댓글 모듈입니다.';
 $GV['_COMMENT_']['SINGLE'] = true; // 모듈 싱글 여부
 
 $GV['_COMMENT_']['MODULE_PATH'] = $GV['PATH']['MODULES_PATH'] . '/' . $GV['_COMMENT_']['MODULE'];
