@@ -185,9 +185,19 @@ class InstallController {
     $ModuleContext = ModuleContext::getInstance();
     $__Db = Db::getInstance();
     $install_module = _post('install_module');
+    if ( empty($install_module) ) return $ModuleContext->resultError('올바른 정보가 아닙니다.');
 
     try {
       $__Db->begin();
+
+      // 테이블 생성
+      $schemas = ModuleHandler::getSchemasQueryString($install_module);
+
+      foreach($schemas as $schema) {
+        $__Db->query = $schema;
+        $__Db->statement();
+      }
+
       $success = InstallObject::moduleInstall($install_module);
       if (!$success) InstallObject::moduleAutoInstall($install_module);
 
