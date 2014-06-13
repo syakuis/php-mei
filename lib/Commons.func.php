@@ -96,12 +96,16 @@
   }
 
   // 두개의 배열을 마이그함. empty 가 true 인 경우 빈값 제거
+  function _extend_empty($val) {
+    return !_is_empty($val);
+  }
   function _extend($array,$array2,$empty = TRUE) {
     if ( !is_array($array2) ) return $array;
     if ( !is_array($array) ) return $array2;
 
-    // 빈 값 제거
-    if ($empty) $array2 = array_filter($array2, 'strlen');
+    // 빈 값 제거 (0은 값을 인정함)
+    if ($empty) $array2 = array_filter($array2, '_extend_empty');
+
     return array_merge($array,$array2);
   }
 
@@ -179,6 +183,10 @@
   function _empty($val,$def = NULL) {
 		if ( empty($val) && $def != NULL ) $val = $def;
 		return $val;
+  }
+  function _is_empty($val, $zero = TRUE) {
+    if ($val == 0 && $zero) return FALSE;
+    return empty($val);
   }
 
 

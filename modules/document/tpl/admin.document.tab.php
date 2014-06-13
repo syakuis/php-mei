@@ -17,8 +17,7 @@ jQuery(function() {
 });
 
 //]]></script>
-
-<ul class="nav nav-pills" id="admin_head_tab">
+<ul class="nav nav-tabs" id="admin_head_tab">
   <li><a href="./<?php echo _param_get('act=dispDocumentAdminConfigList&module_orl=','?')?>">목록</a></li>
   <?php if ( !empty($module_orl) ) { ?>
   <li><a href="./<?php echo _param_get('act=dispDocumentAdminConfigInsert','?')?>">모듈관리</a></li>

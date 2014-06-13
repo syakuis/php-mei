@@ -99,15 +99,28 @@ function save() {
 
 //]]></script>
 
+<ul class="nav nav-pills">
+  <li class="active"><a href="#module-config" data-toggle="tab">모듈설정</a></li>
+  <li><a href="#output-config" data-toggle="tab">출력설정</a></li>
+  <li><a href="#input-config" data-toggle="tab">입력설정</a></li>
+  <li><a href="#file-config" data-toggle="tab">첨부설정</a></li>
+  <li><a href="#comment-config" data-toggle="tab">댓글설정</a></li>
+  <li><a href="#other-config" data-toggle="tab">기타설정</a></li>
+</ul>
+
 <form class="form-horizontal" role="form" id="form" method="post" action="?">
 <input type="hidden" name="module_orl" id="module_orl" value="<?php echo $module_orl?>" />
 
-  <p class="lead">모듈 설정</p>
+<div class="tab-content">
+
+  <!-- 모듈설정 -->
+  <div class="tab-pane active" id="module-config">
+  <p>&nbsp;</p>
   <div class="form-group">
     <label for="module_id" class="col-sm-2 control-label">MID</label>
     <div class="col-sm-10">
       <input type="text" class="form-control" id="module_id" name="module_id" value="<?php echo $module_id?>" />
-      <span class="help-block">알파벳 소문자와 숫자 _ 를 사용하여 모듈명을 완성하세요.</span>
+      <span class="help-block">알파벳 소문자와 숫자 _ 를 사용하여 MID를 완성하세요.</span>
     </div>
   </div>
 
@@ -115,6 +128,7 @@ function save() {
     <label for="module_title" class="col-sm-2 control-label">모듈명</label>
     <div class="col-sm-10">
       <input type="text" class="form-control" id="module_title" name="module_title" value="<?php echo $module_title?>" placeholder="모듈명을 입력하세요." />
+      <span class="help-block">쉽게 알아 볼 수 있는 모듈명을 완성하세요.</span>
     </div>
   </div>
 
@@ -149,11 +163,15 @@ function save() {
       <option value="<?php echo $skin?>"><?php echo $skin?></option>
       <?php } ?>
       </select>
-
+      <span class="help-block">스킨을 변경할 경우 꼭 저장부터 하세요.</span>
     </div>
   </div>
 
-  <p class="lead">출력 설정</p>
+  </div>
+
+  <!-- 출력설정 -->
+  <div class="tab-pane" id="output-config">
+  <p>&nbsp;</p>
   <div class="form-group">
     <label for="options_view_listoutput" class="col-sm-2 control-label">목록 노출여부</label>
     <div class="col-sm-10">
@@ -216,8 +234,11 @@ function save() {
       <span class="help-block">목록의 제목 옆에 출력되는 아이콘들을 지정할 수 있습니다.</span>
     </div>
   </div>
+  </div>
 
-  <p class="lead">입력 설정</p>
+  <!-- 입력설정 -->
+  <div class="tab-pane" id="input-config">
+  <p>&nbsp;</p>
   <div class="form-group">
     <label for="options_editor" class="col-sm-2 control-label">위지윅에디터</label>
     <div class="col-sm-10">
@@ -253,8 +274,11 @@ function save() {
       <input type="text" class="form-control" id="options_input_height" name="options_input_height" value="<?php echo $options_input_height?>" />
     </div>
   </div>
+  </div>
 
-  <p class="lead">첨부 설정</p>
+  <!-- 첨부설정 -->
+  <div class="tab-pane" id="file-config">
+  <p>&nbsp;</p>
   <div class="form-group">
     <label for="options_is_file" class="col-sm-2 control-label">사용여부</label>
     <div class="col-sm-10">
@@ -292,8 +316,11 @@ function save() {
       <span class="help-block">파일을 첨부할 수 있는 최대 수를 지정할 수 있습니다. 0을 지정하면 제한하지 않습니다. 정수로만 입력하세요.</span>
     </div>
   </div>
+  </div>
 
-  <p class="lead">댓글 설정</p>
+  <!-- 댓글설정 -->
+  <div class="tab-pane" id="comment-config">
+  <p>&nbsp;</p>
   <div class="form-group">
     <label for="options_is_comment" class="col-sm-2 control-label">댓글 사용여부</label>
     <div class="col-sm-10">
@@ -343,9 +370,11 @@ function save() {
       <span class="help-block">목록 하단, 페이지를 이동하는 링크 수를 지정하실 수 있습니다. (기본 10개)</span>
     </div>
   </div>
+  </div>
 
-  <p class="lead">기타 설정</p>
-
+  <!-- 기타설정 -->
+  <div class="tab-pane" id="other-config">
+  <p>&nbsp;</p>
   <div class="form-group">
     <label for="header_content" class="col-sm-2 control-label">상단 내용</label>
     <div class="col-sm-10">
@@ -361,10 +390,13 @@ function save() {
       <span class="help-block">해당 게시판 모듈의 상, 하단에 출력될 내용을 지정할 수 있습니다.</span>
     </div>
   </div>
-
-  <div class="tc">
-  <a class="btn btn-default" href="./<?php echo _param_get('act=dispDocumentAdminConfigList&module_orl=','?')?>" role="button">목록</a>
-  <button type="button" class="btn btn-info" onclick="save();">저장</button>
   </div>
+
+</div>
+
+<div class="text-center">
+<a class="btn btn-default" href="./<?php echo _param_get('act=dispDocumentAdminConfigList&module_orl=','?')?>" role="button">목록</a>
+<button type="button" class="btn btn-info" onclick="save();">저장</button>
+</div>
 
 </form>
