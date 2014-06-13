@@ -25,6 +25,7 @@ if ($object != NULL) {
   $options_comment_list_count = htmlspecialchars($rs['options_comment_list_count']);
 
   $options_view_listoutput = htmlspecialchars($rs['options_view_listoutput']);
+  $options_list_type = htmlspecialchars($rs['options_list_type']);
   $options_order_target = htmlspecialchars($rs['options_order_target']);
   $options_order_type = htmlspecialchars($rs['options_order_type']);
   $options_list_count = htmlspecialchars($rs['options_list_count']);
@@ -59,6 +60,8 @@ if (mod == "update") {
   jQuery.ja.setValue("#form #options_is_comment_page","<?php echo $options_is_comment_page?>");
   
   jQuery.ja.setValue("#form #options_view_listoutput","<?php echo $options_view_listoutput?>");
+  jQuery.ja.setValue("#form #options_list_type","<?php echo $options_list_type?>");
+
   jQuery.ja.setValue("#form #options_order_target","<?php echo $options_order_target?>");
   jQuery.ja.setValue("#form #options_order_type","<?php echo $options_order_type?>");
 
@@ -182,17 +185,31 @@ function save() {
       <span class="help-block">상세보기 맨 하단에 목록이 노출됩니다.</span>
     </div>
   </div>
+
+  <div class="form-group">
+    <label for="options_list_type" class="col-sm-2 control-label">목록 형식</label>
+    <div class="col-sm-10">
+      <select class="form-control" name="options_list_type" id="options_list_type">
+      <option value="list" selected="selected">일반</option>
+      <option value="gallery">갤러리</option>
+      <option value="blog">블로그</option>
+      <option value="media">미디어</option>
+      </select>
+      <span class="help-block">목록을 어떤 형식을 노출하는 지 선택하세요.</span>
+    </div>
+  </div>
+
   <div class="form-group">
     <label for="options_order_target" class="col-sm-2 control-label">정렬순서</label>
     <div class="col-sm-10">
       <select class="form-control" name="options_order_target" id="options_order_target">
-      <option selected="selected" value="">기본</option>
+      <option selected="selected" value="">등록순</option>
       <option value="document_orl">번호</option>
       <option value="reg_datetime">등록일</option>
       <option value="readed_count">조회 수</option>
       <option value="title">제목</option>
       </select>
-      <span class="help-block">기본으로 선택할 경우 정렬방식은 적용되지 않습니다.</span>
+      <span class="help-block">기본으로 선택할 경우 등록순으로 정렬됩니다.</span>
     </div>
   </div>
   <div class="form-group">

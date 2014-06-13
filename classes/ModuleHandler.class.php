@@ -262,6 +262,9 @@ class ModuleHandler {
   }
 
   // 스킨변경
+  public static function setTplChange($template) {
+    return self::setSkinChange(NULL, $template);
+  }
   public static function setSkinChange($skin = NULL, $template = NULL) {
     $ModuleContext = ModuleContext::getInstance();
     if ($template == NULL) $template = $ModuleContext->getTemplate();

@@ -51,6 +51,10 @@ class DocumentView {
 
     $M->put('list',$list);
     $M->put('pages',$pages);
+    
+    if ($MOD['options_list_type'] != 'list') {
+      ModuleHandler::setTplChange("document.{$MOD['options_list_type']}.php");
+    }
 
     return $M;
   }
