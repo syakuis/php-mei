@@ -460,7 +460,7 @@ function _resize_width($file,$w) {
   if ($w > $width) { return $width; } else { return $w; }
 }
 
-function cut_str($string, $cut_size = 0, $tail = '...')
+function _cutstring($string, $cut_size = 0, $tail = '...')
 {
 	if($cut_size < 1 || !$string)
 	{

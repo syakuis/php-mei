@@ -1209,9 +1209,9 @@
     }
 
     , paramCreateInput : function(form,param) {
+      if (param == null || param == '') { return; }
       if (typeof form == 'string') form = jQuery(form);
       if (typeof param == 'string') param = $.ja.params2json(param);
-      if (param == null) { return; }
       $.each(param, function(i, field){
         var target = $('#'+field.name,form);
         if (!target.is('#'+field.name)) {

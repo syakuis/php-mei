@@ -19,8 +19,13 @@ class DocumentView {
     $sch_type = _param('sch_type');
     $sch_value = _param('sch_value');
 
+    $module_orl = $MOD['module_orl'];
+    $list_type = _param('list_type', $MOD['options_list_type']);
+    $list_type = _empty($list_type, 'list');
+
+
     $args = new stdClass();
-    $args->module_orl = $MOD['module_orl'];
+    $args->module_orl = $module_orl;
     $args->sch_type = $sch_type;
     $args->sch_value = $sch_value;
 
@@ -45,6 +50,12 @@ class DocumentView {
       $rs['is_file'] = ($rs['file_count'] > 0 && strpos($MOD['options_icons'],'file') > -1);
       // 댓글 존재 유무
       $rs['is_comment'] = ($rs['comment_count'] > 0 && $MOD['options_is_comment'] == 'Y');
+      $rs['subject'] = ( empty($MOD['options_subject_limit']) ) ? $rs['subject'] : _cutstring($rs['subject'], $MOD['options_subject_limit']);
+
+      if ($list_type != 'list') {
+        $image_list = FileUploaderObject::getImageFileList($module_orl, 0, $rs['document_orl']);
+        $rs['images'] = $image_list;
+      }
       array_push($list,$rs);
       $cnt++;
     }
@@ -52,8 +63,8 @@ class DocumentView {
     $M->put('list',$list);
     $M->put('pages',$pages);
     
-    if ($MOD['options_list_type'] != 'list') {
-      ModuleHandler::setTplChange("document.{$MOD['options_list_type']}.php");
+    if ($list_type != 'list') {
+      ModuleHandler::setTplChange("document.{$list_type}.php");
     }
 
     return $M;
@@ -95,8 +106,10 @@ class DocumentView {
         $M->put('comment_content',$comment_content);
       }
 
-      $user_list = DocumentDAO::selectUserDocument($document_orl, $member_orl);
-      $M->put('user_list',$user_list);
+      if($M->getMod('options_user_docs_list') == 'Y') {
+        $user_list = DocumentDAO::selectUserDocument($document_orl, $member_orl);
+        $M->put('user_list',$user_list);
+      }
     }
 
     if($M->getMod('options_view_listoutput') == 'Y') {

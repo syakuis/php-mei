@@ -25,12 +25,14 @@ if ($object != NULL) {
   $options_comment_list_count = htmlspecialchars($rs['options_comment_list_count']);
 
   $options_view_listoutput = htmlspecialchars($rs['options_view_listoutput']);
+  $options_user_docs_list = $rs['options_user_docs_list'];
   $options_list_type = htmlspecialchars($rs['options_list_type']);
   $options_order_target = htmlspecialchars($rs['options_order_target']);
   $options_order_type = htmlspecialchars($rs['options_order_type']);
   $options_list_count = htmlspecialchars($rs['options_list_count']);
   $options_page_count = htmlspecialchars($rs['options_page_count']);
   $options_icons = htmlspecialchars($rs['options_icons']);
+  $options_subject_limit = $rs['options_subject_limit'];
 
   $options_editor = htmlspecialchars($rs['options_editor']);
   $options_is_notice = htmlspecialchars($rs['options_is_notice']);
@@ -60,6 +62,7 @@ if (mod == "update") {
   jQuery.ja.setValue("#form #options_is_comment_page","<?php echo $options_is_comment_page?>");
   
   jQuery.ja.setValue("#form #options_view_listoutput","<?php echo $options_view_listoutput?>");
+  jQuery.ja.setValue("#form #options_user_docs_list","<?php echo $options_user_docs_list?>");
   jQuery.ja.setValue("#form #options_list_type","<?php echo $options_list_type?>");
 
   jQuery.ja.setValue("#form #options_order_target","<?php echo $options_order_target?>");
@@ -176,13 +179,24 @@ function save() {
   <div class="tab-pane" id="output-config">
   <p>&nbsp;</p>
   <div class="form-group">
-    <label for="options_view_listoutput" class="col-sm-2 control-label">목록 노출여부</label>
+    <label for="options_view_listoutput" class="col-sm-2 control-label">목록 노출</label>
     <div class="col-sm-10">
       <select class="form-control" name="options_view_listoutput" id="options_view_listoutput">
       <option value="N" selected="selected">사용안함</option>
       <option value="Y">사용</option>
       </select>
       <span class="help-block">상세보기 맨 하단에 목록이 노출됩니다.</span>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="options_user_docs_list" class="col-sm-2 control-label">작성자 최근글 노출</label>
+    <div class="col-sm-10">
+      <select class="form-control" name="options_user_docs_list" id="options_user_docs_list">
+      <option value="N" selected="selected">사용안함</option>
+      <option value="Y">사용</option>
+      </select>
+      <span class="help-block">작성자 최근글이 상세보기에 노출됩니다.</span>
     </div>
   </div>
 
@@ -249,6 +263,13 @@ function save() {
         <input type="checkbox" id="options_icons3" class="options_icons" name="options_icons[]" value="file"> 파일
       </label>
       <span class="help-block">목록의 제목 옆에 출력되는 아이콘들을 지정할 수 있습니다.</span>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="options_list_count" class="col-sm-2 control-label">제목 길이 제한</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="options_subject_limit" name="options_subject_limit" value="<?php echo $options_subject_limit?>" />
+      <span class="help-block">목록에 노출되는 제목길이 설정할 수 있습니다.</span>
     </div>
   </div>
   </div>

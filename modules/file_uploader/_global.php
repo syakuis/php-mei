@@ -12,6 +12,7 @@ $GV['_FILE_UPLOADER_']['SKINS_R_PATH'] = $GV['_FILE_UPLOADER_']['MODULE_R_PATH']
 
 $GV['_FILE_UPLOADER_']['INCLUDE'] = false;
 $GV['_FILE_UPLOADER_']['FILE_TYPE_FILTER'] = '*.php;*.js;*.html;*.htm;*.phps';
+$GV['_FILE_UPLOADER_']['IMAGE_FILE_TYPE'] = 'jpg;gif;png;bmp';
 
 $GV['_FILE_UPLOADER_']['OPTIONS']['options_editor'] = 'smarteditor';
 $GV['_FILE_UPLOADER_']['OPTIONS']['options_file_once_size'] = 10240; //KB

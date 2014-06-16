@@ -2,7 +2,17 @@
 <?php include_once "{$GV['_DOCUMENT_']['MODULE_PATH']}/tpl/document.header.php"; ?>
 
 <div class="panel panel-default clearfix">
-<div class="panel-body">Total <?php echo $pages['total_page']?>/<?php echo $pages['page']?></div>
+<div class="panel-body clearfix">
+<div class="pull-left">
+Total <?php echo $pages['total_page']?>/<?php echo $pages['page']?>
+</div>
+<div class="pull-right">
+<a class="btn btn-default btn-xs" href="./<?php echo _param_get('list_type=list','?')?>" role="button"><span class="glyphicon glyphicon-align-justify"></span></a>
+<a class="btn btn-default btn-xs" href="./<?php echo _param_get('list_type=gallery','?')?>" role="button"><span class="glyphicon glyphicon-th-large"></span></a>
+<a class="btn btn-default btn-xs" href="./<?php echo _param_get('list_type=media','?')?>" role="button"><span class="glyphicon glyphicon-list"></span></a>
+<a class="btn btn-default btn-xs" href="./<?php echo _param_get('list_type=blog','?')?>" role="button"><span class="glyphicon glyphicon-file"></span></a>
+</div>
+</div>
 
 <table class="table table-hover">
 <colgroup>

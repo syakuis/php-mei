@@ -97,6 +97,7 @@ function document_voted(type) {
   </div>
 </div>
 
+<?php if( $ModuleContext->getMod('options_user_docs_list') == 'Y' ) { ?>
 <!-- 작성자 최근 글 -->
 <div class="panel panel-default">
   <div class="panel-heading"><strong><?php echo $nickname?></strong> 님 최근 게시글</div>
@@ -109,6 +110,7 @@ function document_voted(type) {
   <?php } ?>
   </ul>
 </div>
+<?php } ?>
 
 <?php if( $ModuleContext->getMod('options_is_comment') == 'Y' ) { ?><div style="margin-top:20px;"><?php echo $comment_content?></div><?php } ?>
 

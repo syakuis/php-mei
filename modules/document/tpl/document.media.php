@@ -1,10 +1,5 @@
 <?php if (!defined("__SYAKU__")) exit; ?>
 <?php include_once "{$GV['_DOCUMENT_']['MODULE_PATH']}/tpl/document.header.php"; ?>
-<style>
-.thumbnail .over-content {visibility:hidden;position:absolute;bottom:0;left:0;width:1px;height:1px;background:#000;font-weight:bold;font-style:normal;color:#fff;text-align:center;opacity:.6;filter:alpha(opacity=60)}
-.thumbnail .over-content {_visibility:visible;_width:100%;_height:auto;_line-height:20px}
-a:focus .over-content{visibility:visible;width:100%;height:auto}
-</style>
 
 <div class="clearfix">
 <div class="pull-left">
@@ -32,7 +27,7 @@ $color = $rs['color'];
 $style = $rs['style'];
 
 $content = $rs['content'];
-
+$content_text = $rs['content_text'];
 $member_orl = $rs['member_orl'];
 $user_id = $rs['user_id'];
 $nickname = $rs['nickname'];
@@ -50,24 +45,37 @@ $reg_datetime = _date('$1/$2/$3',$rs['reg_datetime']);
 
 $ipaddress = $rs['ipaddress'];
 
-$image_path = null;
-if ( !empty($rs['images']) ) {
-  $image_path = $GV['PATH']['FILES_R_PATH'] . $rs['images'][0]['path'];
-}
-
   $subject_style = "";
   if ($is_bold == 'Y') { $subject_style .= 'font-weight :bold;'; }
   if ( !empty($color) ) { $subject_style .= " color :#{$color};"; }
   if ( !empty($style) ) { $subject_style .= " {$style}"; }
+
+$image_path = null;
+if ( !empty($rs['images']) ) {
+  $image_path = $GV['PATH']['FILES_R_PATH'] . $rs['images'][0]['path'];
+}
 ?>
 
-  <div class="col-xs-6 col-md-3">
-    <a href="./<?php echo _param_get("act=dispDocumentView&document_orl={$document_orl}",'?')?>" class="thumbnail">
-      <img src="<?php echo $image_path?>" style="height: 180px; width: 100%;" alt="<?php echo $subject?>">
-      <div class='over-content'>
-      </div>
-    </a>
+<div class="col-md-6">
+<div class="panel panel-default">
+  <div class="panel-body">
+
+  <div class="media" style="height:100px;">
+  <a class="pull-left" href="./<?php echo _param_get("act=dispDocumentView&document_orl={$document_orl}",'?')?>">
+    <img class="media-object" src="<?php echo $image_path?>" style="height: 64px; width:64px;">
+  </a>
+  <div class="media-body">
+    <h4 class="media-heading"><?php echo $subject?></h4>
+    <p><span class="label label-default">조회 <?php echo $readed_count?></span>&nbsp;<span class="label label-default">추천 <?php echo $good_count?></span>&nbsp;<span class="label label-default">비추 <?php echo $bad_count?></span></p>
+    <?php echo _cutstring($content_text,100)?>
+    <?php echo $reg_datetime?>
   </div>
+  </div>
+
+  </div>
+</div>
+</div>
+
 <?php }?>
 <?php if ($pages['total_count'] == 0) { ?>
 <?php }?>

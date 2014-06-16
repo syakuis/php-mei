@@ -73,13 +73,14 @@ class FileUploaderObject {
 
   //  _image_object
   function getImageFileList($module_orl,$seq,$target_orl) {
-
+    global $GV;
+    $file_type = $GV['_FILE_UPLOADER_']['IMAGE_FILE_TYPE'];
     $list = array();
     $result = FileUploaderDAO::selectTargetOrl($module_orl, $seq, NULL,$target_orl);
 
     foreach($result as $rs) {
       $extension = strtolower($rs['extension']);
-      if ( preg_match('/' . $extension . '/','jpg;gif;png;bmp') ) {
+      if ( preg_match('/' . $extension . '/', $file_type) ) {
         $data = self::getFileExists($rs);
         array_push($list,$data);
       }
